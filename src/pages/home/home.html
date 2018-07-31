@@ -1,14 +1,21 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <img src="assets/imgs/logo_principal.png">
+  <p>Seja bem vindo sr(a).{{ usuario }}</p>
+
+  <br>
+
+  <ion-card>
+    <button (click)='irParaMinhasObras()' ion-button block large> Minhas Obras </button>
+    <button (click)='irParaProcurarProfissionais()' ion-button block large> Procurar Profissionais </button>
+  </ion-card>
+
+  <ion-card>
+    <button (click)='irParaSouProfissional()' ion-button block large> Sou Profissional </button>
+  </ion-card>
+  
+  <br>
+
+  <button ion-button full small> Sair </button>
+
 </ion-content>

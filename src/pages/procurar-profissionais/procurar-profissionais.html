@@ -1,0 +1,49 @@
+<!--
+  Generated template for the ProcurarProfissionaisPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content>
+
+  <ion-card>
+
+    <ion-item>
+      <ion-label>Encontre seu profissional:</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-list>
+        <ion-item>
+          <ion-label>Profissão</ion-label>
+          <ion-select [(ngModel)]="profissao">
+            <ion-option value="todos">Todos</ion-option>
+            <ion-option value="pedreiro">Pedreiros</ion-option>
+            <ion-option value="pintor">Pintores</ion-option>
+            <ion-option value="marceneiro">Marceneiros</ion-option>
+            <ion-option value="encanador">Encanadores</ion-option>
+            <ion-option value="eletrcista">Eletricistas</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+    <ion-item>
+        <ion-label>Qualificação:</ion-label>
+        <ion-range min="0" max="5" pin="true" [(ngModel)]="contrast" color="primary">
+          <ion-icon range-left small name="star"></ion-icon>
+          <ion-icon range-right name="star"></ion-icon>
+        </ion-range>
+  </ion-item>
+
+    <button ion-button large block >
+        <ion-icon name="search"> Pesquisar </ion-icon>
+      </button>
+
+  </ion-card>
+
+  <button (click)='voltarParaHome()' ion-button full small> voltar </button>
+
+
+
+</ion-content>
