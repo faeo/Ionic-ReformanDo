@@ -35,11 +35,16 @@
 .btn_sair{
     background: yellow;
     color: black;
-    position: absolute; 
+    position: absolute;
     /*left: 90px;  posiciona a 90px para a esquerda */ 
     top: 93%; /* posiciona a 70px para baixo */
 }
 
+/* Esconde botão
+.voltar-hidden{
+    display: none;
+}
+*/
 .btn_sair:hover{
     background: red !important;
     color: aliceblue !important;

@@ -45,10 +45,12 @@
   </ion-card>
 
   <!-- BOTÃO VOLTAR-->
-  <button (click)='voltarParaHome()' ion-button full small class="btn_sair">
-    <ion-icon name="ios-return-left-outline">
-      Voltar
-    </ion-icon>
-  </button>
+  <!-- ion-footer id="footer" class="footer" [hidden]="teclado.isOpen()" -->
+    <button (click)='voltarParaHome()' ion-button full small class="btn_sair">
+      <ion-icon name="ios-return-left-outline">
+        Voltar
+      </ion-icon>
+    </button>
+  <!--/ion-footer -->
 
 </ion-content>
