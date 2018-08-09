@@ -1,3 +1,12 @@
 page-home {
 
+    .btn_souProfissional{
+        background: silver;
+        color: darkgoldenrod;
+    }
+
+    .btn_souProfissional:hover{
+        color: silver !important;
+        background: darkgoldenrod !important;
+    }
 }

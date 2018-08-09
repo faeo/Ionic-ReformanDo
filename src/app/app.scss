@@ -15,8 +15,37 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-/*{
+.fundo{
     background: rgb(10, 20, 30);
-    color: azure;
+    color: azure !important;
     text-align: center;
-}*/
+
+}
+
+.btn_base{
+    background: rgb(40, 130, 214);
+    color: azure;
+}
+
+.btn_base:hover{
+    background: azure !important;
+    color: rgb(40, 130, 214) !important;
+}
+
+.btn_sair{
+    background: yellow;
+    color: black;
+    position: absolute; 
+    /*left: 90px;  posiciona a 90px para a esquerda */ 
+    top: 93%; /* posiciona a 70px para baixo */
+}
+
+.btn_sair:hover{
+    background: red !important;
+    color: aliceblue !important;
+}
+
+.logo_abrev{
+    float: center;
+    width: 40%;
+}

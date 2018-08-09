@@ -4,15 +4,55 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<ion-content class="fundo">
 
-  <ion-navbar>
-    <ion-title>SouProfissional</ion-title>
-  </ion-navbar>
+  <img src="assets/imgs/logo_abrev.png" class="logo_abrev">
 
-</ion-header>
+  <p>Cadastre-se ou indique profissionais para aprimorar nosso aplicativo. É gratis</p>
+
+  <ion-card class="fundo">
+
+    <ion-item class="fundo">
+      <ion-label>Nome:</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-list>
+      <ion-item class="fundo">
+        <ion-label>Profissão</ion-label>
+        <ion-select [(ngModel)]="profissao">
+          <ion-option value="todos">Todos</ion-option>
+          <ion-option value="pedreiro">Pedreiros</ion-option>
+          <ion-option value="pintor">Pintores</ion-option>
+          <ion-option value="marceneiro">Marceneiros</ion-option>
+          <ion-option value="encanador">Encanadores</ion-option>
+          <ion-option value="eletrcista">Eletricistas</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-item class="fundo">
+      <ion-label>Telefone:</ion-label>
+      <ion-input type="Tel"></ion-input>
+    </ion-item>
+
+    <ion-item class="fundo">
+        <ion-label>E-mail:</ion-label>
+        <ion-input type="email"></ion-input>
+      </ion-item>
 
 
-<ion-content padding>
+    <button class="btn_base" ion-button round large block>
+      <ion-icon name="enviar"> Cadastrar </ion-icon>
+    </button>
+
+  </ion-card>
+
+  <!-- BOTÃO VOLTAR-->
+  <button (click)='voltarParaHome()' ion-button full small class="btn_sair">
+    <ion-icon name="ios-return-left-outline">
+      Voltar
+    </ion-icon>
+  </button>
 
 </ion-content>

@@ -1,21 +1,44 @@
-<ion-content>
-
+<ion-content class="fundo">
   <img src="assets/imgs/logo_principal.png">
   <p>Seja bem vindo sr(a).{{ usuario }}</p>
 
   <br>
 
-  <ion-card>
-    <button (click)='irParaMinhasObras()' ion-button block large> Minhas Obras </button>
-    <button (click)='irParaProcurarProfissionais()' ion-button block large> Procurar Profissionais </button>
+  <ion-card class="fundo">
+
+    <!-- BOTÃO MINHAS OBRAS -->
+    <button class="btn_base" (click)='irParaMinhasObras()' ion-button block round large>
+      <ion-icon name="ios-home-outline">
+        Minhas Obras
+      </ion-icon>
+    </button>
+
+    <!-- BOTÃO PROCURAR PROFISSIONAIS -->
+    <button class="btn_base" (click)='irParaProcurarProfissionais()' ion-button block round large>
+      <ion-icon name="ios-search-outline">
+        Procurar Profissionais
+      </ion-icon>
+    </button>
   </ion-card>
 
-  <ion-card>
-    <button (click)='irParaSouProfissional()' ion-button block large> Sou Profissional </button>
-  </ion-card>
-  
   <br>
 
-  <button ion-button full small> Sair </button>
+  <ion-card class="fundo">
 
+    <!-- BOTÃO SOU PROFISSIONAL -->
+    <button (click)='irParaSouProfissional()' ion-button block round large class="btn_souProfissional">
+      <ion-icon name="ios-construct-outline">
+        Sou Profissional
+      </ion-icon>
+    </button>
+  </ion-card>
+
+  <br>
+
+  <!-- BOTÃO SAIR-->
+  <button ion-button full small class="btn_sair">
+    <ion-icon name="ios-exit-outline">
+      Sair
+    </ion-icon>
+  </button>
 </ion-content>
