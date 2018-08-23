@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { NovasObrasPage } from '../novas-obras/novas-obras';
 
 /**
  * Generated class for the MinhasObrasPage page.
@@ -25,5 +26,9 @@ export class MinhasObrasPage {
 
   voltarParaHome(){
     this.navCtrl.push(HomePage);
+  }
+
+  irParaNovasObras(){
+    this.navCtrl.push(NovasObrasPage);
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Keyboard } from 'ionic-angular'; // Keyboard btn_sair - Matheus Mestre
+import { IonicPage, NavController, NavParams} from 'ionic-angular'; // Keyboard btn_sair - Matheus Mestre
 import { HomePage } from '../home/home';
 
 /**
@@ -16,8 +16,7 @@ import { HomePage } from '../home/home';
 })
 export class ProcurarProfissionaisPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public teclado: Keyboard) {
-    this.teclado.onClose(this.closeCallback);
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -28,17 +27,6 @@ export class ProcurarProfissionaisPage {
     this.navCtrl.push(HomePage);
   }
   
-  /* Quando teclado ativado add classe voltar-hidden ao footer */
-  keyboardCheck() {
-    if(this.teclado.isOpen()){
-      document.getElementById('footer').classList.add("voltar-hidden");
-    }
-    else{
-      document.getElementById('footer').classList.remove("voltar-hidden");
-    }
-  }
 
-  closeCallback() {
-    document.getElementById('footer').classList.remove("voltar-hidden");
-  }
+
 }

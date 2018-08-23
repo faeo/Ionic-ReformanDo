@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HomePage } from '../home/home';
+import { MinhasObrasPage } from '../minhas-obras/minhas-obras';
 
 /**
- * Generated class for the SouProfissionalPage page.
+ * Generated class for the NovasObrasPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,27 +11,30 @@ import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
-  selector: 'page-sou-profissional',
-  templateUrl: 'sou-profissional.html',
+  selector: 'page-novas-obras',
+  templateUrl: 'novas-obras.html',
 })
-export class SouProfissionalPage {
-  profissional = {}
+export class NovasObrasPage {
+
+  obra = {}
   logForm() {
-    console.log(this.profissional)
+    console.log(this.obra)
   }
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-
     
+
 
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SouProfissionalPage');
+    console.log('ionViewDidLoad NovasObrasPage');
   }
 
-  voltarParaHome(){
-    this.navCtrl.push(HomePage);
+  voltarParaMinhasObras(){
+    this.navCtrl.push(MinhasObrasPage);
   }
+
+  
 
 }

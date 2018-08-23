@@ -12,7 +12,6 @@ import { ProcurarProfissionaisPage } from './procurar-profissionais';
 })
 export class ProcurarProfissionaisPageModule {
 
-  structure: any = { lower: 33, upper: 60 };
 
 }
 

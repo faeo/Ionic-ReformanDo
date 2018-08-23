@@ -7,6 +7,13 @@
 
 <ion-content class="fundo">
 
+   <!-- BOTÃO VOLTAR-->
+   <ion-fab left edge>
+      <button (click)='voltarParaHome()' class="btn_base" ion-fab mini>
+        <ion-icon name="ios-return-left-outline"></ion-icon>
+      </button>
+    </ion-fab>
+
   <img src="assets/imgs/logo_abrev.png" class="logo_abrev">
 
   <ion-card class="fundo">
@@ -43,14 +50,5 @@
     </button>
 
   </ion-card>
-
-  <!-- BOTÃO VOLTAR-->
-  <!-- ion-footer id="footer" class="footer" [hidden]="teclado.isOpen()" -->
-    <button (click)='voltarParaHome()' ion-button full small class="btn_sair">
-      <ion-icon name="ios-return-left-outline">
-        Voltar
-      </ion-icon>
-    </button>
-  <!--/ion-footer -->
 
 </ion-content>

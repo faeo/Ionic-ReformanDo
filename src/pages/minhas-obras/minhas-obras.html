@@ -6,10 +6,17 @@
 -->
 <ion-content class="fundo">
 
+  <!-- BOTÃO VOLTAR-->
+  <ion-fab left edge>
+    <button (click)='voltarParaHome()' class="btn_base" ion-fab mini>
+      <ion-icon name="ios-return-left-outline"></ion-icon>
+    </button>
+  </ion-fab>
+
   <img src="assets/imgs/logo_abrev.png" class="logo_abrev">
 
   <ion-fab right edge>
-    <button class="btn_base" ion-fab mini>
+    <button (click)='irParaNovasObras()' class="btn_base" ion-fab mini>
       <ion-icon name="add"></ion-icon>
     </button>
   </ion-fab>
@@ -45,12 +52,5 @@
 
 
   </ion-card>
-
-  <!-- BOTÃO VOLTAR-->
-  <button (click)='voltarParaHome()' ion-button full small class="btn_sair">
-    <ion-icon name="ios-return-left-outline">
-      Voltar
-    </ion-icon>
-  </button>
 
 </ion-content>

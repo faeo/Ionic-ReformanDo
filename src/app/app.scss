@@ -17,9 +17,8 @@
 
 .fundo{
     background: rgb(10, 20, 30);
-    color: azure !important;
     text-align: center;
-
+    color: azure !important;
 }
 
 .btn_base{
@@ -53,4 +52,9 @@
 .logo_abrev{
     float: center;
     width: 40%;
+}
+
+.azure{
+    color: azure !important;
+    background: azure;
 }

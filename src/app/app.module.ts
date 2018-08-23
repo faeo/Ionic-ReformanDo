@@ -10,6 +10,7 @@ import { IntroPageModule } from '../pages/intro/intro.module';
 import { MinhasObrasPageModule } from '../pages/minhas-obras/minhas-obras.module';
 import { ProcurarProfissionaisPageModule } from '../pages/procurar-profissionais/procurar-profissionais.module';
 import { SouProfissionalPageModule } from '../pages/sou-profissional/sou-profissional.module';
+import { NovasObrasPageModule } from '../pages/novas-obras/novas-obras.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SouProfissionalPageModule } from '../pages/sou-profissional/sou-profiss
     IntroPageModule,
     MinhasObrasPageModule,
     ProcurarProfissionaisPageModule,
-    SouProfissionalPageModule
+    SouProfissionalPageModule,
+    NovasObrasPageModule
 
   ],
   bootstrap: [IonicApp],
