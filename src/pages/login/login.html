@@ -1,0 +1,41 @@
+<ion-content class="fundo">
+  <img src="assets/imgs/logo_principal.png">
+
+  <br>
+
+  <ion-card class="fundo">
+    <ion-item class="fundo">
+      <ion-label>Usuario:</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item class="fundo">
+      <ion-label>Senha:</ion-label>
+      <ion-input type="passoword"></ion-input>
+    </ion-item>
+  </ion-card>
+
+  <button class="btn_base" ion-button round large block (click)='logar()'>
+    <ion-icon name="login"> Login </ion-icon>
+  </button>
+  <br>
+  <a (click)='esqueceuSenha()'> Esqueceu a Senha?</a>
+  <br>
+  <br>
+  <a (click)='criarConta()'> Crie sua conta!</a>
+
+  <ion-list>
+    <ion-item *ngFor="let feed of feeds">
+      {{feed.nome}}
+    </ion-item>
+  </ion-list>
+
+  <br>
+
+  <!-- BOTÃO SAIR-->
+  <button ion-button full small class="btn_sair">
+    <ion-icon name="ios-exit-outline">
+      Sair
+    </ion-icon>
+  </button>
+</ion-content>
