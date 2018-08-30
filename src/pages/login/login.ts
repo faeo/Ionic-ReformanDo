@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -24,6 +26,7 @@ export class LoginPage {
     this.http.get(this.url).map(res => res.json())
       .subscribe(data => {
         this.feeds = data.pessoas;
+        //console.log(data);
       }); 
   
   }

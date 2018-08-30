@@ -24,11 +24,14 @@
   <br>
   <a (click)='criarConta()'> Crie sua conta!</a>
 
-  <ion-list>
-    <ion-item *ngFor="let feed of feeds">
-      {{feed.nome}}
-    </ion-item>
-  </ion-list>
+
+    <ion-list>
+      <ion-item *ngFor="let i of feeds">
+        {{i.nome}}
+      </ion-item>
+    </ion-list>
+  
+ 
 
   <br>
 
