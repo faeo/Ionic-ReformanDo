@@ -12,7 +12,7 @@ import { MinhasObrasPageModule } from '../pages/minhas-obras/minhas-obras.module
 import { ProcurarProfissionaisPageModule } from '../pages/procurar-profissionais/procurar-profissionais.module';
 import { SouProfissionalPageModule } from '../pages/sou-profissional/sou-profissional.module';
 import { NovasObrasPageModule } from '../pages/novas-obras/novas-obras.module';
-import { LoginPageModule } from '../pages/login/login.module';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +27,6 @@ import { LoginPageModule } from '../pages/login/login.module';
     ProcurarProfissionaisPageModule,
     SouProfissionalPageModule,
     NovasObrasPageModule,
-    LoginPageModule,
     HttpModule
 
   ],
