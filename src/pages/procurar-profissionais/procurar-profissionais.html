@@ -45,9 +45,16 @@
       </ion-range>
     </ion-item>
 
-    <button class="btn_base" ion-button round large block>
+    <button (click)='procurarProfissionais()' class="btn_base" ion-button round large block>
       <ion-icon name="search"> Pesquisar </ion-icon>
     </button>
+    <!-- <ion-option *ngFor="let item of strings" [value]="item">{{item}}</ion-option> -->
+    <!-- *ngFor="let item of items; let i = index" -->
+    <ion-list >
+      <ion-option *ngFor="let profissional of profissionais" >
+      {{profissional.nome}} {{profissional.profissao}} <br>
+      </ion-option> 
+    </ion-list>
 
   </ion-card>
 

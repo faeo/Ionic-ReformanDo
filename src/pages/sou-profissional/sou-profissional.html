@@ -23,12 +23,12 @@
 
       <ion-item class="fundo">
         <ion-label>Nome:</ion-label>
-        <ion-input type="text" [(ngModel)]="profissional.nome" name="nome"></ion-input>
+        <ion-input type="text" [(ngModel)]="profissional.nome" name="nome" required ></ion-input>
       </ion-item>
 
       <ion-item class="fundo">
           <ion-label>CPF:</ion-label>
-          <ion-input type="number" [(ngModel)]="profissional.cpf" name="cpf"></ion-input>
+          <ion-input type="number" [(ngModel)]="profissional.cpf" name="cpf" required></ion-input>
       </ion-item>
 
       <ion-item class="fundo">
@@ -61,7 +61,7 @@
         </ion-item>
 
 
-      <button class="btn_base" ion-button round large block>
+      <button type="submit" class="btn_base" ion-button round large block>
         <ion-icon name="enviar"> Cadastrar </ion-icon>
       </button>
     </form>

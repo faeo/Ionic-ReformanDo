@@ -4,6 +4,7 @@ import { MinhasObrasPage } from '../minhas-obras/minhas-obras';
 import { ProcurarProfissionaisPage } from '../procurar-profissionais/procurar-profissionais';
 import { SouProfissionalPage } from '../sou-profissional/sou-profissional';
 import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'page-home',
