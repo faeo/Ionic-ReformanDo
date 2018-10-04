@@ -20,17 +20,35 @@
 
   <br>
   
-  <form (ngSubmit)="logForm()" class="fundo">
+  <form (ngSubmit)="cadastrarObra()" class="fundo">
     
-    <ion-item>
+    <ion-item class="fundo">
       <ion-label>Titulo da Obra</ion-label>
       <ion-input type="text" [(ngModel)]="obra.titulo" name="titulo"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item class="fundo">
       <ion-label>Descricao</ion-label>
       <ion-textarea [(ngModel)]="obra.descricao" name="descricao"></ion-textarea>
     </ion-item>
+
+    <ion-item class="fundo">
+      <ion-label>Localização</ion-label>
+      <ion-input type="text" [(ngModel)]="obra.cidade" name="cidade"></ion-input>
+    </ion-item>
+
+    <ion-list>
+      <ion-item class="fundo">
+        <ion-label>Profissional</ion-label>
+        <ion-select [(ngModel)]="obra.profissao" name="profissao">
+          <ion-option value="pedreiro">Pedreiro</ion-option>
+          <ion-option value="pintor">Pintor</ion-option>
+          <ion-option value="marceneiro">Marceneiro</ion-option>
+          <ion-option value="encanador">Encanador</ion-option>
+          <ion-option value="eletrcista">Eletricista</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
 
 
     <button ion-button type="submit" class="btn_base" ion-button block round large>Cadastrar</button>

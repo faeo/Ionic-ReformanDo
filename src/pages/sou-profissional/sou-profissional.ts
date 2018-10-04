@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { Http, Headers, RequestOptions } from '@angular/http';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 import { HomePage } from '../home/home';
-import { Http, RequestOptions } from '@angular/http';
 
 /**
  * Generated class for the SouProfissionalPage page.
@@ -17,27 +19,23 @@ import { Http, RequestOptions } from '@angular/http';
 })
 export class SouProfissionalPage {
 
-  private profissional;
+  private dados;
   private http: Http;
 	private alertCtrl: AlertController;
-	private url: string = "http://localhost/projeto_webservice/api/?acao=";	
+	private url: string = "http://localhost/ReformanDo/api/?acao=";	
  
- 
-  /*logForm() {
-    console.log(this.profissional)
-  }*/
 
   constructor(public navCtrl: NavController, public navParams: NavParams, http: Http, alertCtrl: AlertController) {
     
-    this.profissional = {};
-    this.profissional.nome = '';
-    this.profissional.apelido = '';
-    this.profissional.cpf = '';
-    this.profissional.endereco = '';
-    this.profissional.bairro = '';
-    this.profissional.cidade = '';
-    this.profissional.telefone = '';
-    this.profissional.profissao = '';
+    this.dados = {};
+    this.dados.nome = '';
+    this.dados.apelido = '';
+    this.dados.cpf = '';
+    this.dados.endereco = '';
+    this.dados.bairro = '';
+    this.dados.cidade = '';
+    this.dados.telefone = '';
+    this.dados.profissao = '';
     
    
 
@@ -69,16 +67,34 @@ export class SouProfissionalPage {
     };
 
     var headers = new Headers();
-    headers.append("Accept", 'application/json');
-    headers.append('Content-Type', 'application/json');
-    let options = new RequestOptions ({headers: headers});
+		headers.append("Accept", 'application/json');
+		headers.append('Content-Type', 'application/json' );
+		let options = new RequestOptions({ headers: headers });
 
-    this.http.post('http://localhost/ReformanDo/api/formularioProfissionais.php', dados, options);
-    .map(res => res.json())
-    .subscribe(data =>{
-      console.log(data);
+    var result = this.http.post(this.url + 'formularioProfissional', this.dados, options)
+		.map(res => res.json())
+		.subscribe(data => {
+		  console.log(data);
+		}, error => {
+		  console.log(error);
     });
-   
+    
+    console.log(this.dados);
+
+    let alert = this.alertCtrl.create({
+			title: 'Profissional cadastrado com sucesso!',
+			buttons: [
+				{
+			        text: 'OK',
+			        role: 'ok',
+			        handler: () => {
+			          this.navCtrl.push(HomePage)
+			        }
+		      	}
+		    ]
+			});
+		alert.present();
+
   }
 
 }

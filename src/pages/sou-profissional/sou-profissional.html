@@ -23,43 +23,43 @@
 
       <ion-item class="fundo">
         <ion-label>Nome:</ion-label>
-        <ion-input type="text" [(ngModel)]="profissional.nome" name="nome" required ></ion-input>
+        <ion-input type="text" [(ngModel)]="dados.nome" name="nome" required ></ion-input>
       </ion-item>
 
       <ion-item class="fundo">
         <ion-label>Apelido:</ion-label>
-        <ion-input type="text" [(ngModel)]="profissional.apelido" name="apelido"  ></ion-input>
+        <ion-input type="text" [(ngModel)]="dados.apelido" name="apelido"  ></ion-input>
       </ion-item>
 
       <ion-item class="fundo">
           <ion-label>CPF:</ion-label>
-          <ion-input type="number" [(ngModel)]="profissional.cpf" name="cpf" required></ion-input>
+          <ion-input type="number" [(ngModel)]="dados.cpf" name="cpf" required></ion-input>
       </ion-item>
 
       <ion-item class="fundo">
         <ion-label>Endereço:</ion-label>
-        <ion-input type="text" [(ngModel)]="profissional.endereco" name="endereco"></ion-input>
+        <ion-input type="text" [(ngModel)]="dados.endereco" name="endereco"></ion-input>
       </ion-item>
 
       <ion-item class="fundo">
         <ion-label>Bairro:</ion-label>
-        <ion-input type="text" [(ngModel)]="profissional.bairro" name="bairro"></ion-input>
+        <ion-input type="text" [(ngModel)]="dados.bairro" name="bairro"></ion-input>
       </ion-item>
 
       <ion-item class="fundo">
           <ion-label>Cidade:</ion-label>
-          <ion-input type="text" [(ngModel)]="profissional.cidade" name="cidade"></ion-input>
+          <ion-input type="text" [(ngModel)]="dados.cidade" name="cidade"></ion-input>
         </ion-item>
 
       <ion-item class="fundo">
           <ion-label>Telefone:</ion-label>
-          <ion-input type="Tel" [(ngModel)]="profissional.telefone" name="telefone"></ion-input>
+          <ion-input type="Tel" [(ngModel)]="dados.telefone" name="telefone"></ion-input>
       </ion-item>
 
       <ion-list>
         <ion-item class="fundo">
           <ion-label>Profissão</ion-label>
-          <ion-select [(ngModel)]="profissional.profissao" name="profissao">
+          <ion-select [(ngModel)]="dados.profissao" name="profissao">
             <ion-option value="pedreiro">Pedreiro</ion-option>
             <ion-option value="pintor">Pintor</ion-option>
             <ion-option value="marceneiro">Marceneiro</ion-option>

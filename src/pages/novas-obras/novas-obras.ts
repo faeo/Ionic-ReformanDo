@@ -35,6 +35,10 @@ export class NovasObrasPage {
     this.navCtrl.push(MinhasObrasPage);
   }
 
+  cadastrarObra(){
+    
+  }
+
   
 
 }
