@@ -19,11 +19,16 @@
 
   <ion-card class="fundo">
     
-    <form (ngSubmit)="souProfi()">
+    <form (ngSubmit)="souProfissional()">
 
       <ion-item class="fundo">
         <ion-label>Nome:</ion-label>
         <ion-input type="text" [(ngModel)]="profissional.nome" name="nome" required ></ion-input>
+      </ion-item>
+
+      <ion-item class="fundo">
+        <ion-label>Apelido:</ion-label>
+        <ion-input type="text" [(ngModel)]="profissional.apelido" name="apelido"  ></ion-input>
       </ion-item>
 
       <ion-item class="fundo">
@@ -32,33 +37,39 @@
       </ion-item>
 
       <ion-item class="fundo">
+        <ion-label>Endereço:</ion-label>
+        <ion-input type="text" [(ngModel)]="profissional.endereco" name="endereco"></ion-input>
+      </ion-item>
+
+      <ion-item class="fundo">
+        <ion-label>Bairro:</ion-label>
+        <ion-input type="text" [(ngModel)]="profissional.bairro" name="bairro"></ion-input>
+      </ion-item>
+
+      <ion-item class="fundo">
           <ion-label>Cidade:</ion-label>
           <ion-input type="text" [(ngModel)]="profissional.cidade" name="cidade"></ion-input>
         </ion-item>
+
+      <ion-item class="fundo">
+          <ion-label>Telefone:</ion-label>
+          <ion-input type="Tel" [(ngModel)]="profissional.telefone" name="telefone"></ion-input>
+      </ion-item>
 
       <ion-list>
         <ion-item class="fundo">
           <ion-label>Profissão</ion-label>
           <ion-select [(ngModel)]="profissional.profissao" name="profissao">
-            <ion-option value="todos">Todos</ion-option>
-            <ion-option value="pedreiro">Pedreiros</ion-option>
-            <ion-option value="pintor">Pintores</ion-option>
-            <ion-option value="marceneiro">Marceneiros</ion-option>
-            <ion-option value="encanador">Encanadores</ion-option>
-            <ion-option value="eletrcista">Eletricistas</ion-option>
+            <ion-option value="pedreiro">Pedreiro</ion-option>
+            <ion-option value="pintor">Pintor</ion-option>
+            <ion-option value="marceneiro">Marceneiro</ion-option>
+            <ion-option value="encanador">Encanador</ion-option>
+            <ion-option value="eletrcista">Eletricista</ion-option>
           </ion-select>
         </ion-item>
       </ion-list>
 
-      <ion-item class="fundo">
-        <ion-label>Telefone:</ion-label>
-        <ion-input type="Tel" [(ngModel)]="profissional.tel" name="tel"></ion-input>
-      </ion-item>
-
-      <ion-item class="fundo">
-          <ion-label>E-mail:</ion-label>
-          <ion-input type="email" [(ngModel)]="profissional.email" name="email"></ion-input>
-        </ion-item>
+     
 
 
       <button type="submit" class="btn_base" ion-button round large block>
