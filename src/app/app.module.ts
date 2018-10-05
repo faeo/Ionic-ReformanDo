@@ -13,6 +13,13 @@ import { ProcurarProfissionaisPageModule } from '../pages/procurar-profissionais
 import { SouProfissionalPageModule } from '../pages/sou-profissional/sou-profissional.module';
 import { NovasObrasPageModule } from '../pages/novas-obras/novas-obras.module';
 
+import { UsersProvider } from '../providers/users/users';
+import { CreateAccountPageModule } from '../pages/create-account/create-account.module';
+import { LoginPageModule } from '../pages/login/login.module';
+import { UserDetailPageModule } from '../pages/user-detail/user-detail.module';
+import { UserEditPageModule } from '../pages/user-edit/user-edit.module';
+import { UserListPageModule } from '../pages/user-list/user-list.module';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +34,11 @@ import { NovasObrasPageModule } from '../pages/novas-obras/novas-obras.module';
     ProcurarProfissionaisPageModule,
     SouProfissionalPageModule,
     NovasObrasPageModule,
+    CreateAccountPageModule,
+    LoginPageModule,
+    UserDetailPageModule,
+    UserEditPageModule,
+    UserListPageModule,
     HttpModule
 
   ],
@@ -38,7 +50,8 @@ import { NovasObrasPageModule } from '../pages/novas-obras/novas-obras.module';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    UsersProvider
   ]
 })
 export class AppModule {}

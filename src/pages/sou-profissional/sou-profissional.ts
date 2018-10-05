@@ -22,7 +22,7 @@ export class SouProfissionalPage {
   private dados;
   private http: Http;
 	private alertCtrl: AlertController;
-	private url: string = "http://localhost/ReformanDo/api/?acao=";	
+	private url: string = "http://localhost/WebService_ReformanDo/api/";	
  
 
   constructor(public navCtrl: NavController, public navParams: NavParams, http: Http, alertCtrl: AlertController) {

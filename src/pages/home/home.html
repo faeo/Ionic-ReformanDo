@@ -1,44 +1,18 @@
-<ion-content class="fundo">
-  <img src="assets/imgs/logo_principal.png">
-  <p>Seja bem vindo sr(a).{{ usuario }}</p>
 
-  <br>
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Rest Api Example
+    </ion-title>
+  </ion-navbar>
+</ion-header>
 
-  <ion-card class="fundo">
+<ion-content padding>
 
-    <!-- BOTÃO MINHAS OBRAS -->
-    <button class="btn_base" (click)='irParaMinhasObras()' ion-button block round large>
-      <ion-icon name="ios-home-outline">
-        Minhas Obras
-      </ion-icon>
-    </button>
+  <h1 text-center margin-bottom>Exemplo de API REST</h1>
 
-    <!-- BOTÃO PROCURAR PROFISSIONAIS -->
-    <button class="btn_base" (click)='irParaProcurarProfissionais()' ion-button block round large>
-      <ion-icon name="ios-search-outline">
-        Procurar Profissionais
-      </ion-icon>
-    </button>
-  </ion-card>
+  <button ion-button block (click)="openCreateAccount()">Criar conta</button>
+  <button ion-button block (click)="openLogin()">Login</button>
+  <button ion-button block (click)="openListUsers()">CRUD de usuários</button>
 
-  <br>
-
-  <ion-card class="fundo">
-
-    <!-- BOTÃO SOU PROFISSIONAL -->
-    <button (click)='irParaSouProfissional()' ion-button block round large class="btn_souProfissional">
-      <ion-icon name="ios-construct-outline">
-        Sou Profissional
-      </ion-icon>
-    </button>
-  </ion-card>
-
-  <br>
-
-  <!-- BOTÃO SAIR-->
-  <button ion-button full small class="btn_sair">
-    <ion-icon name="ios-exit-outline">
-      Sair
-    </ion-icon>
-  </button>
 </ion-content>

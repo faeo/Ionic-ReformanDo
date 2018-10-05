@@ -1,0 +1,61 @@
+<ion-content class="fundo">
+
+  <ion-fab left edge>
+    <button (click)='voltarParaLogin()' class="btn_base" ion-fab mini>
+      <ion-icon name="ios-return-left-outline"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <img src="assets/imgs/logo_abrev.png" class="logo_abrev"/>
+  <h2>Crie sua conta</h2>
+
+  <ion-list>
+    <ion-item class="fundo">
+      <ion-label stacked>Nome:</ion-label>
+      <ion-input type="text" [(ngModel)]="model.nome" name="nome" required></ion-input>
+    </ion-item>
+
+    <ion-item class="fundo">
+      <ion-label stacked>Apelido:</ion-label>
+      <ion-input type="text" [(ngModel)]="model.apelido" name="apelido"></ion-input>
+    </ion-item>
+
+    <ion-item class="fundo">
+      <ion-label stacked>CPF:</ion-label>
+      <ion-input type="number" [(ngModel)]="model.cpf" name="cpf" required></ion-input>
+    </ion-item>
+
+    <ion-item class="fundo">
+      <ion-label stacked>Endereço:</ion-label>
+      <ion-input type="text" [(ngModel)]="model.endereco" name="endereco"></ion-input>
+    </ion-item>
+
+    <ion-item class="fundo">
+      <ion-label stacked>Bairro:</ion-label>
+      <ion-input type="text" [(ngModel)]="model.bairro" name="bairro"></ion-input>
+    </ion-item>
+
+    <ion-item class="fundo">
+      <ion-label stacked>Cidade:</ion-label>
+      <ion-input type="text" [(ngModel)]="model.cidade" name="cidade"></ion-input>
+    </ion-item>
+
+    <ion-item class="fundo">
+      <ion-label stacked>Telefone:</ion-label>
+      <ion-input type="Tel" [(ngModel)]="model.telefone" name="telefone"></ion-input>
+    </ion-item>
+
+    <ion-item class="fundo">
+      <ion-label stacked>E-mail</ion-label>
+      <ion-input type="text" name="email" [(ngModel)]="model.email"></ion-input>
+    </ion-item>
+
+    <ion-item class="fundo">
+      <ion-label stacked>Senha</ion-label>
+      <ion-input type="password" name="password" [(ngModel)]="model.password"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button block (click)="createAccount()">Criar conta</button>
+
+</ion-content>

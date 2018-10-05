@@ -1,10 +1,7 @@
+
+
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { MinhasObrasPage } from '../minhas-obras/minhas-obras';
-import { ProcurarProfissionaisPage } from '../procurar-profissionais/procurar-profissionais';
-import { SouProfissionalPage } from '../sou-profissional/sou-profissional';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'page-home',
@@ -12,49 +9,18 @@ import 'rxjs/add/operator/map';
 })
 export class HomePage {
 
-  public feeds: Array<string>;
-  private url: string = "http://localhost/web_service/";
-  public usuario:string = '';
+  constructor(public navCtrl: NavController) { }
 
-  constructor(public navCtrl: NavController, public http: Http) {
-
-    this.http.get(this.url).map(res => res.json())
-      .subscribe(data => {
-        this.feeds = data.pessoas;
-        //console.log(data);
-      }); 
-
-      this.getUsuario();
-
+  openCreateAccount() {
+    this.navCtrl.push('CreateAccountPage');
   }
 
-  getUsuario(){
-    let id = 1;
-    this.http.get(this.url + '?id=' + id).map(res => res.json())
-    .subscribe(data => {
-      this.usuario = data.pessoas[0].nome;
-      //console.log(data);
-    }); 
-
-
+  openLogin() {
+    this.navCtrl.push('LoginPage');
   }
 
-  irParaMinhasObras(){
-
-    this.navCtrl.push(MinhasObrasPage);
-
+  openListUsers() {
+    this.navCtrl.push('UserListPage');
   }
-
-  irParaProcurarProfissionais(){
-
-    this.navCtrl.push(ProcurarProfissionaisPage);
-
-  }
-
-  irParaSouProfissional(){
-
-    this.navCtrl.push(SouProfissionalPage);
-
-  }
-
 }
+
