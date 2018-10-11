@@ -1,18 +1,43 @@
+<ion-content class="fundo">
+  <img src="assets/imgs/logo_principal.png">
+  <p>Seja bem vindo sr(a).{{ usuario.nome }}</p>
 
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Rest Api Example
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+  <br>
 
-<ion-content padding>
+  <ion-card class="fundo">
 
-  <h1 text-center margin-bottom>Exemplo de API REST</h1>
 
-  <button ion-button block (click)="openCreateAccount()">Criar conta</button>
-  <button ion-button block (click)="openLogin()">Login</button>
-  <button ion-button block (click)="openListUsers()">CRUD de usuários</button>
+    <button class="btn_base" (click)='irParaMinhasObras()' ion-button block round large>
+      <ion-icon name="ios-home-outline">
+        Minhas Obras
+      </ion-icon>
+    </button>
 
+   
+    <button class="btn_base" (click)='irParaProcurarProfissionais()' ion-button block round large>
+      <ion-icon name="ios-search-outline">
+        Procurar Profissionais
+      </ion-icon>
+    </button>
+  </ion-card>
+
+  <br>
+
+  <ion-card class="fundo">
+
+   
+    <button (click)='irParaSouProfissional()' ion-button block round large class="btn_souProfissional">
+      <ion-icon name="ios-construct-outline">
+        Sou Profissional
+      </ion-icon>
+    </button>
+  </ion-card>
+
+  <br>
+
+  <button ion-button full small class="btn_sair">
+    <ion-icon name="ios-exit-outline">
+      Sair
+    </ion-icon>
+  </button>
 </ion-content>
