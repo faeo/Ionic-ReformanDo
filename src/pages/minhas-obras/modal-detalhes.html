@@ -21,9 +21,13 @@
           <p>Tipo profissional:</p>
            {{item.profissional}} <br><br>
 
-           <button ion-button danger (click)="excluir()">
+           <button ion-button (click)="excluirObra()">
               <ion-icon  name="trash"> Excluir </ion-icon>
             </button>
+
+            <button ion-button (click)="editarObra()">
+                <ion-icon  name="trash"> Editar </ion-icon>
+              </button>
           <!--
            <button ion-button icon-only (click)="editarItem({{item.id}})" light>
               <ion-icon name="paper"> Editar </ion-icon>

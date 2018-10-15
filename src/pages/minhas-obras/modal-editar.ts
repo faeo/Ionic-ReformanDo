@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import {  NavParams, Platform, ViewController, AlertController } from 'ionic-angular';
+import {  NavParams, Platform, ViewController, AlertController, NavController } from 'ionic-angular';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
+import { MinhasObrasPage } from './minhas-obras';
 
 @Component({
   selector: 'modal-editar',
@@ -14,12 +15,13 @@ export class ModalContentPageEditar {
   private alertCtrl: AlertController;
   private url: string = "http://localhost/WebService_ReformanDo/api/?acao=";
 
-  constructor(public platform: Platform, public params: NavParams, public viewCtrl: ViewController, http: Http, alertCtrl: AlertController){    
+  constructor(public navCtrl: NavController, public platform: Platform, public params: NavParams, public viewCtrl: ViewController, http: Http, alertCtrl: AlertController){    
     this.item = {};
     this.item.id = params.get('id');
     this.item.nome = params.get('nome');
     this.item.descricao = params.get('descricao');
     this.item.localizacao = params.get('localizacao');
+    this.item.profissional = params.get('profissional');
 
     this.http = http;
     this.alertCtrl = alertCtrl;
@@ -33,7 +35,7 @@ export class ModalContentPageEditar {
     headers.append('Content-Type', 'application/json' );
     let options = new RequestOptions({ headers: headers });
 
-    var result = this.http.post(this.url + 'editarObra&idobras=' + this.item.id, this.item, options)
+    var result = this.http.post(this.url + 'editarObraPorId&idobras=' + this.item.id, this.item, options)
     .map(res => res.json())
     .subscribe(data => {
       console.log(data);
@@ -51,6 +53,7 @@ export class ModalContentPageEditar {
               role: 'ok',
               handler: () => {
                 this.viewCtrl.dismiss(this.item);
+                this.navCtrl.push( MinhasObrasPage);
               }
             }
         ]

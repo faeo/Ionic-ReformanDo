@@ -53,57 +53,5 @@ export class MinhasObrasPage {
     modal.present();
   }
 
-  editarItem(event, item) {
-
-    let index = this.feeds.indexOf(item);
-    let modal = this.modalCtrl.create(ModalContentPageEditar, item);
-    modal.present();
-    modal.onDidDismiss(dados => {
-      if (index > -1) {
-        this.feeds[index] = dados;
-      }
-      //console.log("Data =>", item)
-    });
-
-  }
-
-  deletarItem(event, item) {
-
-    let prompt = this.alertCtrl.create({
-      title: 'Deseja excluir esta obra?',
-      inputs: [{
-        name: 'title'
-      }],
-      buttons: [
-        {
-          text: 'Não'
-        },
-        {
-          text: 'Sim',
-          handler: data => {
-
-            let index = this.feeds.indexOf(item);
-
-            if (index > -1) {
-              this.feeds.splice(index, 1);
-            }
-
-            this.http.get(this.url + 'excluirObraPorId&idobra=' + item.idobras)
-              .map(res => res.json())
-              .subscribe(data => {
-                console.log(data);
-              }, error => {
-                console.log(error);
-              });
-
-          }
-        }
-      ]
-    });
-
-    //prompt.present();
-    this.navCtrl.push(HomePage);
-
-  }
-
+  
 }

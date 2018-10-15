@@ -12,20 +12,24 @@
     </ion-toolbar>
   </ion-header>
   
-  <ion-content>
+  <ion-content class="fundo">
   
       <form (ngSubmit)="formSubmit()">
-        <ion-item>
+        <ion-item class="fundo">
           <ion-label>Nome Obra</ion-label>
           <ion-input type="text" [(ngModel)]="item.nome" name="nome"></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item class="fundo">
           <ion-label>Descrição</ion-label>
           <ion-textarea [(ngModel)]="item.descricao" name="descricao"></ion-textarea>
         </ion-item>
         <ion-item>
           <ion-label>Localizacao </ion-label>
           <ion-input type="text" [(ngModel)]="item.localizacao" name="localizacao"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Profissional </ion-label>
+            <ion-input type="text" [(ngModel)]="item.profissional" name="profissional"></ion-input>
         </ion-item>
         <button ion-button type="submit" block>Salvar</button>
       </form>
