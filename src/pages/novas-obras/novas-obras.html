@@ -1,4 +1,3 @@
-
 <ion-content class="fundo">
 
   <!-- BOTÃO VOLTAR-->
@@ -11,9 +10,9 @@
   <img src="assets/imgs/logo_abrev.png" class="logo_abrev">
 
   <br>
-  
+
   <form (ngSubmit)="cadastrarObra()" class="fundo">
-    
+
     <ion-item class="fundo">
       <ion-label>Titulo da Obra</ion-label>
       <ion-input type="text" [(ngModel)]="dados.nomeobra" name="nomeobra"></ion-input>
@@ -23,11 +22,19 @@
       <ion-label>Descricao</ion-label>
       <ion-textarea [(ngModel)]="dados.descricao" name="descricao"></ion-textarea>
     </ion-item>
-    
-    <ion-item class="fundo">
-      <ion-label>Localização</ion-label>
-      <ion-input type="text" [(ngModel)]="dados.localizacao" name="localizacao"></ion-input>
-    </ion-item>
+
+    <ion-list>
+      <ion-item class="fundo">
+        <ion-label>Localização</ion-label>
+        <ion-select [(ngModel)]="dados.localizacao" name="localizacao">
+          <ion-option value="baependi">Baependi</ion-option>
+          <ion-option value="cambuquira">Cambuquira</ion-option>
+          <ion-option value="caxambu">Caxambu</ion-option>
+          <ion-option value="tres coracoes">Três Corações</ion-option>
+          <ion-option value="varginha">Varginha</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
 
     <ion-list>
       <ion-item class="fundo">

@@ -7,9 +7,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { ModalContentPage } from '../minhas-obras/modal';
 import { ModalContentPageEditar } from '../minhas-obras/modal-editar';
-
 import { GlobalServicesVarsProvider } from '../../providers/global-services-vars/global-services-vars';
-import { Observable } from 'rx';
+
 
 
 @IonicPage()
@@ -23,17 +22,17 @@ export class MinhasObrasPage {
   private url: string;
   private alertCtrl: AlertController;
 
-  constructor(public navCtrl: NavController,  public http: Http, public modalCtrl: ModalController, alertCtrl: AlertController, public globalSvsVars: GlobalServicesVarsProvider) {
-    
+  constructor(public navCtrl: NavController, public http: Http, public modalCtrl: ModalController, alertCtrl: AlertController, public globalSvsVars: GlobalServicesVarsProvider) {
+
 
 
     this.alertCtrl = alertCtrl;
     this.url = globalSvsVars.apiUrl;
 
     //Listar Obras
-    this.http.get(this.url +'listarObras').map(res => res.json())
+    this.http.get(this.url + 'listarObras').map(res => res.json())
       .subscribe(data => {
-        this.feeds = data.Obras;       
+        this.feeds = data.Obras;
       });
   }
 
@@ -41,11 +40,11 @@ export class MinhasObrasPage {
     console.log('ionViewDidLoad MinhasObrasPage');
   }
 
-  voltarParaHome(){
+  voltarParaHome() {
     this.navCtrl.push(HomePage);
   }
 
-  irParaNovasObras(){
+  irParaNovasObras() {
     this.navCtrl.push(NovasObrasPage);
   }
 
@@ -54,55 +53,56 @@ export class MinhasObrasPage {
     modal.present();
   }
 
-  editarItem(event, item){
+  editarItem(event, item) {
 
     let index = this.feeds.indexOf(item);
     let modal = this.modalCtrl.create(ModalContentPageEditar, item);
     modal.present();
-    modal.onDidDismiss(dados=>{
-      if(index > -1){
+    modal.onDidDismiss(dados => {
+      if (index > -1) {
         this.feeds[index] = dados;
-      }  
+      }
       //console.log("Data =>", item)
     });
 
   }
 
-  deletarItem(event, item){
- 
+  deletarItem(event, item) {
+
     let prompt = this.alertCtrl.create({
       title: 'Deseja excluir esta obra?',
       inputs: [{
-          name: 'title'
+        name: 'title'
       }],
       buttons: [
-          {
-              text: 'Não'
-          },
-          {
-              text: 'Sim',
-              handler: data => {
-                
-                let index = this.feeds.indexOf(item);
- 
-                if(index > -1){
-                    this.feeds.splice(index, 1);
-                }
+        {
+          text: 'Não'
+        },
+        {
+          text: 'Sim',
+          handler: data => {
 
-                this.http.get(this.url + 'excluirObraPorId&idobra=' + item.idobras)
-                .map(res => res.json())
-                .subscribe(data => {
-                  console.log(data);
-                }, error => {
-                  console.log(error);
-                });
+            let index = this.feeds.indexOf(item);
 
-              }
+            if (index > -1) {
+              this.feeds.splice(index, 1);
+            }
+
+            this.http.get(this.url + 'excluirObraPorId&idobra=' + item.idobras)
+              .map(res => res.json())
+              .subscribe(data => {
+                console.log(data);
+              }, error => {
+                console.log(error);
+              });
+
           }
+        }
       ]
     });
 
-    prompt.present();
+    //prompt.present();
+    this.navCtrl.push(HomePage);
 
   }
 

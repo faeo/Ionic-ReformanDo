@@ -1,23 +1,38 @@
-<ion-header>
-    <ion-toolbar>
-      <ion-title>
-        Detalhes
-      </ion-title>
+  <ion-content class="fundo">
+    <br>
+    <br>
       <ion-buttons start>
-        <button ion-button (click)="dismiss()">
-          <span ion-text color="primary" showWhen="ios">Cancel</span>
-          <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
-        </button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content>
+          <button ion-button (click)="dismiss()">
+            <span showWhen="ios">Fechar</span>
+            <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+          </button>
+        </ion-buttons>
+
+
     <ion-list>
-        <ion-item>
+        <ion-item class="fundo">
           <img src="../../assets/imgs/logo_abrev.png">
-          <h2>{{item.idobras}}</h2>
-          <p>{{item.nomeobra}}</p>
+          <p>Nome da Obra:</p>
+           {{item.nome}} <br><br>
+          <p>Descrição:</p>
+           {{item.descricao}} <br><br>
+          <p>Localização:</p>
+          {{item.localizacao}} <br><br>
+          <p>Tipo profissional:</p>
+           {{item.profissional}} <br><br>
+
+           <button ion-button danger (click)="excluir()">
+              <ion-icon  name="trash"> Excluir </ion-icon>
+            </button>
+          <!--
+           <button ion-button icon-only (click)="editarItem({{item.id}})" light>
+              <ion-icon name="paper"> Editar </ion-icon>
+            </button>
+
+            <button ion-button icon-only (click)="deletarItem($event, item)" danger>
+              <ion-icon name="trash"> Excluir </ion-icon>
+            </button>
+            -->
         </ion-item>
     </ion-list>
   </ion-content>

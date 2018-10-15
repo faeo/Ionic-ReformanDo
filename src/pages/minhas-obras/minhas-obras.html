@@ -5,7 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-content class="fundo">
-
+  <br>
   <!-- BOTÃO VOLTAR-->
   <ion-fab left edge>
     <button (click)='voltarParaHome()' class="btn_base" ion-fab mini>
@@ -29,51 +29,60 @@
   <ion-list>
     <ion-item-sliding *ngFor="let feed of feeds">
       <ion-item class="fundo" (click)="itemDetalhes($event, feed)">
+
         <ion-thumbnail *ngIf="feed.imagem" item-left>
           <img src="assets/imgs/logo_principal.png">
         </ion-thumbnail>
         <ion-thumbnail *ngIf="!feed.imagem" item-left>
           <img src="./assets/icon/favicon.ico">
         </ion-thumbnail>
-        {{feed.id}} - {{feed.nome}}
+
+        <p>
+          <label>Nome da Obra:</label>
+        </p>
+        <br> {{feed.nome}} <br>
+        <p>
+          <br><label>Descrição:</label>
+        </p>
+        <br> {{feed.descricao}} <br><br>
+
       </ion-item>
 
-      <ion-item-options>
-        <button ion-button icon-only (click)="editarItem($event, feed)" light>
-          <ion-icon name="paper"></ion-icon>
-        </button>
-        <button ion-button icon-only (click)="deletarItem($event, feed)" danger>
-          <ion-icon name="trash"></ion-icon>
+      <ion-item-options side="left">
+        <button ion-button (click)="editarItem($event, feed)">
+          <ion-icon name="paper"> Editar </ion-icon>
         </button>
       </ion-item-options>
+
+      <ion-item-options side="right">
+        <button ion-button (click)="editarItem($event, feed)">
+          <ion-icon name="paper"> Editar </ion-icon>
+        </button>
+      </ion-item-options>
+
+
     </ion-item-sliding>
-  </ion-list> 
+  </ion-list>
 
+  <!--botões editar/excluir 
+    <ion-item-options side="left">
+      <button ion-button (click)="favorite(item)">Favorite</button>
+      <button ion-button color="danger" (click)="share(item)">Share</button>
+    </ion-item-options>
 
-  <!--base 
+    <ion-item-options side="right">
+      <button ion-button (click)="unread(item)">Unread</button>
+    </ion-item-options>
     
-    <ion-card class="fundo">
-    <ion-card-content>
-      <button ion-item class="fundo">
-        <ion-item class="fundo">
-          <img src="assets/imgs/logo_principal.png">
-          <h2>Marty McFly</h2>
-          <p>November 5, 1955</p>
-        </ion-item>
-
-      </button>
-    </ion-card-content>
-
-    <ion-card-content>
-      <button ion-item class="fundo">
-        <ion-item class="fundo">
-          <img src="assets/imgs/logo_principal.png">
-          <h2>Marty McFly</h2>
-          <p>November 5, 1955</p>
-        </ion-item>
-      </button>
-    </ion-card-content>
-
-  </ion-card>-->
+    <ion-item-options  side="left">
+        <button ion-button icon-only (click)="editarItem($event, feed)" light>
+          <ion-icon name="paper"> Editar </ion-icon>
+        </button>
+        <button ion-button icon-only (click)="deletarItem($event, feed)" danger>
+          <ion-icon name="trash"> Excluir </ion-icon>
+        </button>
+      </ion-item-options>
+    
+    -->
 
 </ion-content>

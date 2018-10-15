@@ -16,8 +16,8 @@ export class ModalContentPageEditar {
 
   constructor(public platform: Platform, public params: NavParams, public viewCtrl: ViewController, http: Http, alertCtrl: AlertController){    
     this.item = {};
-    this.item.idobra = params.get('idobras');
-    this.item.nomeobra = params.get('nomeobra');
+    this.item.id = params.get('id');
+    this.item.nome = params.get('nome');
     this.item.descricao = params.get('descricao');
     this.item.localizacao = params.get('localizacao');
 
@@ -33,7 +33,7 @@ export class ModalContentPageEditar {
     headers.append('Content-Type', 'application/json' );
     let options = new RequestOptions({ headers: headers });
 
-    var result = this.http.post(this.url + 'editarObra&idobras=' + this.item.idobras, this.item, options)
+    var result = this.http.post(this.url + 'editarObra&idobras=' + this.item.id, this.item, options)
     .map(res => res.json())
     .subscribe(data => {
       console.log(data);
@@ -41,7 +41,7 @@ export class ModalContentPageEditar {
       console.log(error);
     });
 
-    // console.log(this.dados);
+    //console.log(this.item);
 
     let alert = this.alertCtrl.create({
       title: 'Obra alterada com sucesso!',
