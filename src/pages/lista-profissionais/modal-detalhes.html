@@ -1,0 +1,45 @@
+<ion-content class="fundo">
+  <br>
+  <br>
+  <ion-buttons start>
+    <button ion-button (click)="dismiss()">
+      <span showWhen="ios">Fechar</span>
+      <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+    </button>
+  </ion-buttons>
+
+  
+
+
+  <ion-list>
+    <ion-item class="fundo">
+      <img src="../../assets/imgs/logo_abrev.png">
+      <p>Nome:</p>
+      {{item.nome}} 
+      <p>Apelido:</p>
+      {{item.apelido}} 
+      <p>Rua:</p>
+      {{item.endereco}} 
+      <p>Bairro:</p>
+      {{item.bairro}} 
+      <p>Cidade:</p>
+      {{item.cidade}}
+      <p>Profissão:</p>
+      {{item.profissao}}
+    </ion-item>
+  </ion-list>
+
+  <form (ngSubmit)="avaliacao()" class="fundo">
+
+    <p>Deixe sua avaliação para o(a) profissional {{item.nome}}:</p>
+    <ion-range min="0" max="5" pin="true" color="primary">
+        <ion-icon range-left small name="ios-star-outline"></ion-icon>
+        <ion-icon range-right name="star"></ion-icon>
+    </ion-range>
+
+    <button type="submit" class="btn_base" ion-button>
+        <ion-icon name="star"> Avaliar </ion-icon>
+    </button>
+  
+  </form>
+</ion-content>

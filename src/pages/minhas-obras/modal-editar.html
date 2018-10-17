@@ -1,18 +1,12 @@
-<ion-header>
-    <ion-toolbar>
-      <ion-title>
-        Editar
-      </ion-title>
-      <ion-buttons start>
+<ion-content class="fundo">
+  <br>
+  <br>
+    <ion-buttons start>
         <button ion-button (click)="dismiss()">
-          <span ion-text color="primary" showWhen="ios">Cancel</span>
+          <span showWhen="ios">Fechar</span>
           <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
         </button>
       </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content class="fundo">
   
       <form (ngSubmit)="formSubmit()">
         <ion-item class="fundo">
@@ -23,14 +17,33 @@
           <ion-label>Descrição</ion-label>
           <ion-textarea [(ngModel)]="item.descricao" name="descricao"></ion-textarea>
         </ion-item>
-        <ion-item>
-          <ion-label>Localizacao </ion-label>
-          <ion-input type="text" [(ngModel)]="item.localizacao" name="localizacao"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label>Profissional </ion-label>
-            <ion-input type="text" [(ngModel)]="item.profissional" name="profissional"></ion-input>
-        </ion-item>
+
+        <ion-list>
+          <ion-item class="fundo">
+            <ion-label>Localização</ion-label>
+            <ion-select [(ngModel)]="item.localizacao" name="localizacao">
+              <ion-option value="baependi">Baependi</ion-option>
+              <ion-option value="cambuquira">Cambuquira</ion-option>
+              <ion-option value="caxambu">Caxambu</ion-option>
+              <ion-option value="tres coracoes">Três Corações</ion-option>
+              <ion-option value="varginha">Varginha</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+    
+        <ion-list>
+          <ion-item class="fundo">
+            <ion-label>Profissional</ion-label>
+            <ion-select [(ngModel)]="item.profissional" name="profissional">
+              <ion-option value="pedreiro">Pedreiro</ion-option>
+              <ion-option value="pintor">Pintor</ion-option>
+              <ion-option value="marceneiro">Marceneiro</ion-option>
+              <ion-option value="encanador">Encanador</ion-option>
+              <ion-option value="eletrcista">Eletricista</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+
         <button ion-button type="submit" block>Salvar</button>
       </form>
   

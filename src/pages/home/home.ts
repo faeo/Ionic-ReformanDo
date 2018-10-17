@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Platform } from 'ionic-angular';
 import { MinhasObrasPage } from '../minhas-obras/minhas-obras';
 import { ProcurarProfissionaisPage } from '../procurar-profissionais/procurar-profissionais';
 import { SouProfissionalPage } from '../sou-profissional/sou-profissional';
@@ -16,7 +16,9 @@ export class HomePage {
   private url: string = "http://localhost/WebService_ReformanDo/api/?acao=listarUsuarios";
   public usuario:string = '';
 
-  constructor(public navCtrl: NavController, public http: Http) {
+  constructor(public navCtrl: NavController, public http: Http, public platform: Platform) {
+
+    this.platform = platform;
 
     this.http.get(this.url).map(res => res.json())
       .subscribe(data => {
@@ -54,6 +56,11 @@ export class HomePage {
 
     this.navCtrl.push(SouProfissionalPage);
 
+  }
+
+  sair(){
+  
+    this.platform.exitApp();
   }
 
 } 

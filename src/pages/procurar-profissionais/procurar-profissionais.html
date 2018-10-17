@@ -1,61 +1,62 @@
-<!--
-  Generated template for the ProcurarProfissionaisPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-
 <ion-content class="fundo">
 
-   <!-- BOTÃO VOLTAR-->
-   <ion-fab left edge>
-      <button (click)='voltarParaHome()' class="btn_base" ion-fab mini>
-        <ion-icon name="ios-return-left-outline"></ion-icon>
-      </button>
-    </ion-fab>
+  <!-- BOTÃO VOLTAR-->
+  <ion-fab left edge>
+    <button (click)='voltarParaHome()' class="btn_base" ion-fab mini>
+      <ion-icon name="ios-return-left-outline"></ion-icon>
+    </button>
+  </ion-fab>
 
   <img src="assets/imgs/logo_abrev.png" class="logo_abrev">
+  
+  <ion-item class="fundo">
+    <ion-label>Nome:</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
 
-  <ion-card class="fundo">
-
+  <ion-list>
     <ion-item class="fundo">
-      <ion-label>Nome:</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-label>Cidade</ion-label>
+      <ion-select name="cidade">
+        <ion-option value="baependi">Baependi</ion-option>
+        <ion-option value="cambuquira">Cambuquira</ion-option>
+        <ion-option value="caxambu">Caxambu</ion-option>
+        <ion-option value="tres coracoes">Três Corações</ion-option>
+        <ion-option value="varginha">Varginha</ion-option>
+      </ion-select>
     </ion-item>
+  </ion-list>
 
-    <ion-list >
-      <ion-item class="fundo">
-        <ion-label>Profissão</ion-label>
-        <ion-select [(ngModel)]="profissao">
-          <ion-option value="todos">Todos</ion-option>
-          <ion-option value="pedreiro">Pedreiros</ion-option>
-          <ion-option value="pintor">Pintores</ion-option>
-          <ion-option value="marceneiro">Marceneiros</ion-option>
-          <ion-option value="encanador">Encanadores</ion-option>
-          <ion-option value="eletrcista">Eletricistas</ion-option>
-        </ion-select>
-      </ion-item>
-    </ion-list>
-
+  <ion-list>
     <ion-item class="fundo">
-      <ion-label>Qualificação:</ion-label>
-      <ion-range min="0" max="5" pin="true" [(ngModel)]="qualificacao" color="primary">
-        <ion-icon range-left small name="ios-star-outline"></ion-icon>
-        <ion-icon range-right name="star"></ion-icon>
-      </ion-range>
+      <ion-label>Profissional</ion-label>
+      <ion-select name="tipoprofissional">
+        <ion-option value="pedreiro">Pedreiro</ion-option>
+        <ion-option value="pintor">Pintor</ion-option>
+        <ion-option value="marceneiro">Marceneiro</ion-option>
+        <ion-option value="encanador">Encanador</ion-option>
+        <ion-option value="eletrcista">Eletricista</ion-option>
+      </ion-select>
     </ion-item>
+  </ion-list>
 
-    <button (click)='procurarProfissionais()' class="btn_base" ion-button round large block>
-      <ion-icon name="search"> Pesquisar </ion-icon>
-    </button>
-    <!-- <ion-option *ngFor="let item of strings" [value]="item">{{item}}</ion-option> -->
-    <!-- *ngFor="let item of items; let i = index" -->
-    <ion-list >
-      <ion-option *ngFor="let profissional of profissionais" >
-      {{profissional.nome}} {{profissional.profissao}} <br>
-      </ion-option> 
-    </ion-list>
+  <ion-item class="fundo">
+    <ion-label>Qualificação:</ion-label>
+    <ion-range min="0" max="5" pin="true" color="primary">
+      <ion-icon range-left small name="ios-star-outline"></ion-icon>
+      <ion-icon range-right name="star"></ion-icon>
+    </ion-range>
+  </ion-item>
 
-  </ion-card>
 
+  <button (click)='procurarProfissionais()' class="btn_base" ion-button round large block>
+    <ion-icon name="search"> Pesquisar </ion-icon>
+  </button> 
+  <!-- <ion-option *ngFor="let item of strings" [value]="item">{{item}}</ion-option> -->
+  <!-- *ngFor="let item of items; let i = index" -->
+
+  <br>
+
+  
 </ion-content>
+

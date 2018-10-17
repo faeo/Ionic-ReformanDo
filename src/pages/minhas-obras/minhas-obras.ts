@@ -6,7 +6,6 @@ import { NovasObrasPage } from '../novas-obras/novas-obras';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { ModalContentPage } from '../minhas-obras/modal';
-import { ModalContentPageEditar } from '../minhas-obras/modal-editar';
 import { GlobalServicesVarsProvider } from '../../providers/global-services-vars/global-services-vars';
 
 

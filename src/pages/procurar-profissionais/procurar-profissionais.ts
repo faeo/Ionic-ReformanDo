@@ -1,15 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams} from 'ionic-angular'; // Keyboard btn_sair - Matheus Mestre
+import { IonicPage, NavController} from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { GlobalServicesVarsProvider } from '../../providers/global-services-vars/global-services-vars';
+import { ListaProfissionaisPage } from '../lista-profissionais/lista-profissionais';
 
-/**
- * Generated class for the ProcurarProfissionaisPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -19,24 +15,23 @@ import 'rxjs/add/operator/map';
 export class ProcurarProfissionaisPage {
 
   public feeds: Array<string>;
-  private url: string = "http://localhost/ReformanDo/api/listarProfissionais.php";
-  public profissionais:string = '';
+  private url: string;
   
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
+  constructor(public navCtrl: NavController, public http: Http,  public globalSvsVars: GlobalServicesVarsProvider) {
     
+    this.url = globalSvsVars.apiUrl;
+
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProcurarProfissionaisPage');
   }
 
+ 
   procurarProfissionais(){
-    this.http.get(this.url).map(res => res.json())
-    .subscribe(data => {
-      this.profissionais = data.Obras;
-      //console.log(data);
-    }); 
+    this.navCtrl.push(ListaProfissionaisPage);
   }
 
   voltarParaHome(){

@@ -1,0 +1,41 @@
+<ion-content class="fundo">
+
+  <!-- BOTÃO VOLTAR-->
+  <ion-fab left edge>
+    <button (click)='voltarParaProcurarProfissionais()' class="btn_base" ion-fab mini>
+      <ion-icon name="ios-return-left-outline"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <img src="assets/imgs/logo_abrev.png" class="logo_abrev">
+
+  <h2> Lista de Profissionais </h2>
+
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let feed of feeds">
+      <ion-item class="fundo" (click)="profissionalDetalhes($event, feed)">
+        <ion-thumbnail *ngIf="feed.imagem" item-left>
+          <img src="../assets/imgs/logo_principal.png">
+        </ion-thumbnail>
+        <ion-thumbnail *ngIf="!feed.imagem" item-left>
+          <img src="../assets/icon/favicon.ico">
+        </ion-thumbnail>
+
+        <p>
+          <label>Nome:</label>
+        </p>
+        {{feed.nome}}
+        <p>
+          <label>Apelido:</label>
+        </p>
+        {{feed.apelido}}
+        <p>
+          <label>Qualificação:</label>
+        </p>
+        {{feed.qualificacao}}
+
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

@@ -10,13 +10,18 @@ import { UsersProvider } from '../providers/users/users';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { IntroPage } from '../pages/intro/intro';
+
 import { MinhasObrasPage } from '../pages/minhas-obras/minhas-obras';
-import { ProcurarProfissionaisPage } from '../pages/procurar-profissionais/procurar-profissionais';
-import { SouProfissionalPage } from '../pages/sou-profissional/sou-profissional';
 import { NovasObrasPage } from '../pages/novas-obras/novas-obras';
 
+import { ProcurarProfissionaisPage } from '../pages/procurar-profissionais/procurar-profissionais';
+import { SouProfissionalPage } from '../pages/sou-profissional/sou-profissional';
+import { ListaProfissionaisPage } from '../pages/lista-profissionais/lista-profissionais';
+
 import { ModalContentPage } from '../pages/minhas-obras/modal';
+import { ModalContentPage2 } from '../pages/lista-profissionais/modal2';
 import { ModalContentPageEditar } from '../pages/minhas-obras/modal-editar';
+
 
 import { CreateAccountPage } from '../pages/create-account/create-account';
 import { LoginPage } from '../pages/login/login';
@@ -42,7 +47,9 @@ import { UserListPage } from '../pages/user-list/user-list';
     UserEditPage,
     UserListPage,
     ModalContentPage,
-    ModalContentPageEditar
+    ModalContentPageEditar,
+    ListaProfissionaisPage,
+    ModalContentPage2
   ],
   imports: [
     BrowserModule,
@@ -64,7 +71,9 @@ import { UserListPage } from '../pages/user-list/user-list';
     UserEditPage,
     UserListPage,
     ModalContentPage,
-    ModalContentPageEditar
+    ModalContentPageEditar,
+    ListaProfissionaisPage,
+    ModalContentPage2
   ],
   providers: [
     StatusBar,
