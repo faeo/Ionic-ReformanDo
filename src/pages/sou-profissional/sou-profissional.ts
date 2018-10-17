@@ -22,7 +22,7 @@ export class SouProfissionalPage {
   private dados;
   private http: Http;
 	private alertCtrl: AlertController;
-	private url: string = "http://localhost/WebService_ReformanDo/api/";	
+	private url: string = "http://localhost/WebService_ReformanDo/api/?acao=";	
  
 
   constructor(public navCtrl: NavController, public navParams: NavParams, http: Http, alertCtrl: AlertController) {
@@ -55,23 +55,12 @@ export class SouProfissionalPage {
 
   souProfissional(){
 
-    let dados = {
-      'nome': 'Teste123',
-      'apelido': 'teste123',
-      'cpf': '00100100111', 
-      'endereco': 'rua javali',
-      'bairro' : 'Santana',
-      'cidade' : 'Tres coracoes',
-      'telefone' : '32323232',
-      'profissao' : 'pedreiro'
-    };
-
     var headers = new Headers();
 		headers.append("Accept", 'application/json');
 		headers.append('Content-Type', 'application/json' );
 		let options = new RequestOptions({ headers: headers });
 
-    var result = this.http.post(this.url + 'formularioProfissional', this.dados, options)
+    var result = this.http.post(this.url + 'cadastrarProfissionais', this.dados, options)
 		.map(res => res.json())
 		.subscribe(data => {
 		  console.log(data);
