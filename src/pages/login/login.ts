@@ -1,9 +1,11 @@
-import { UsersProvider } from './../../providers/users/users';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
 import { UserEditPage } from '../user-edit/user-edit';
 import { CreateAccountPage } from '../create-account/create-account';
 import { IntroPage } from '../intro/intro';
+import { Http, RequestOptions, Headers } from '@angular/http';
+import { GlobalServicesVarsProvider } from '../../providers/global-services-vars/global-services-vars';
+import { UsersProvider } from '../../providers/users/users';
 
 @IonicPage()
 @Component({
@@ -11,37 +13,66 @@ import { IntroPage } from '../intro/intro';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  model: User;
+  private model;
+  private http: Http;
+  private alertCtrl: AlertController;
+  private url: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private toast: ToastController, private userProvider: UsersProvider) {
-    this.model = new User();
-    this.model.email = '';
-    this.model.password = '';
+  constructor(public usuario:UsersProvider, alertCtrl: AlertController, http: Http, public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public globalSvsVars: GlobalServicesVarsProvider) {
+
+    this.url = globalSvsVars.apiUrl;
+    this.http = http;
+    this.alertCtrl = alertCtrl;
+    this.model = {};
+
+    this.usuario.usuario.email =  this.model.email = '';
+    this.usuario.usuario.senha =   this.model.senha = '';
+    
+   
   }
 
-  login() {
-    this.userProvider.login(this.model.email, this.model.password)
-      .then((result: any) => {
-        this.toast.create({ message: 'Usuário logado com sucesso. Token: ' + result.token, position: 'botton', duration: 3000 }).present();
+  logar() {
 
-        this.navCtrl.push(IntroPage);
+    var headers = new Headers();
+    headers.append("Accept", 'application/json');
+    headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({ headers: headers });
 
-      })
-      .catch((error: any) => {
-        this.toast.create({ message: 'Erro ao efetuar login. Erro: ' + error.error, position: 'botton', duration: 3000 }).present();
+    this.http.post(this.url + 'logarApp', this.model, options)
+      .map(res => res.json())
+      .subscribe(data => {
+        console.log(data);
+      }, error => {
+        console.log(error);
       });
+
+    console.log(this.model);
+
+    let alert = this.alertCtrl.create({
+
+      title: 'Login efetuado com sucesso!', 
+      buttons: [
+        {
+          text: 'OK',
+          role: 'ok',
+          handler: () => {
+            this.navCtrl.push(IntroPage, { id: this.model.pessoas_idpessoas })
+            console.log('TESTE2', this.model.pessoas_idpessoas);
+          }
+        }
+      ]
+    });
+    alert.present();
+
+
   }
 
-  editarUser(){
+  editarUser() {
     this.navCtrl.push(UserEditPage);
   }
 
-  criarUser(){
+  criarUser() {
     this.navCtrl.push(CreateAccountPage);
   }
 }
 
-export class User {
-  email: string;
-  password: string;
-}

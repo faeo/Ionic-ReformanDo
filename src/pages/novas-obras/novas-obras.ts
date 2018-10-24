@@ -4,6 +4,7 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { MinhasObrasPage } from '../minhas-obras/minhas-obras';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
+import { GlobalServicesVarsProvider } from '../../providers/global-services-vars/global-services-vars';
 
 @IonicPage()
 @Component({
@@ -15,14 +16,10 @@ export class NovasObrasPage {
   private dados;
 	private http: Http;
 	private alertCtrl: AlertController;
-	private url: string = "http://localhost/WebService_ReformanDo/api/?acao=";	
+	private url: string;	
 
-  obra = {}
-  logForm() {
-    console.log(this.obra)
-  }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, http: Http, alertCtrl: AlertController) {
+  constructor(public globalSvsVars: GlobalServicesVarsProvider, public navCtrl: NavController, public navParams: NavParams, http: Http, alertCtrl: AlertController) {
 
     this.dados = {};
         this.dados.nomeobra = '';
@@ -32,7 +29,8 @@ export class NovasObrasPage {
         this.dados.usuarios_idusuarios = 1;
 
         this.http = http;
-        this.alertCtrl = alertCtrl;
+				this.alertCtrl = alertCtrl;
+				this.url = globalSvsVars.apiUrl;
 
 
   }

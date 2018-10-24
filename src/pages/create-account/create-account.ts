@@ -1,7 +1,8 @@
-import { UsersProvider } from './../../providers/users/users';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
+import { RequestOptions, Headers, Http } from '@angular/http';
+import { GlobalServicesVarsProvider } from '../../providers/global-services-vars/global-services-vars';
 
 @IonicPage()
 @Component({
@@ -9,10 +10,14 @@ import { LoginPage } from '../login/login';
   templateUrl: 'create-account.html',
 })
 export class CreateAccountPage {
-  model: User;
+  private model;
+  private http: Http;
+  private url: string;
+  private alertCtrl: AlertController;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private toast: ToastController, private userProvider: UsersProvider) {
-    this.model = new User();
+  constructor(public navCtrl: NavController, public navParams: NavParams, http: Http, alertCtrl: AlertController, public globalSvsVars: GlobalServicesVarsProvider) {
+
+    this.model = {};
     this.model.nome = '';
     this.model.apelido = '';
     this.model.cpf = '';
@@ -21,34 +26,46 @@ export class CreateAccountPage {
     this.model.cidade = '';
     this.model.telefone = '';
     this.model.email = '';
-    this.model.password = '';
+    this.model.senha = '';
+
+    this.url = globalSvsVars.apiUrl;
+    this.http = http;
+    this.alertCtrl = alertCtrl; 
   }
 
-  createAccount() {
-    this.userProvider.createAccount(this.model.nome, this.model.apelido, this.model.cpf, this.model.endereco, this.model.bairro, this.model.cidade, this.model.telefone, this.model.email, this.model.password)
-      .then((result: any) => {
-        this.toast.create({ message: 'Usuário criado com sucesso. Token: ' + result.token, position: 'botton', duration: 3000 }).present();
+  criarConta() {
 
-        this.navCtrl.push(LoginPage);
-      })
-      .catch((error: any) => {
-        this.toast.create({ message: 'Erro ao criar o usuário. Erro: ' + error.error, position: 'botton', duration: 3000 }).present();
-      });
+    var headers = new Headers();
+		headers.append("Accept", 'application/json');
+		headers.append('Content-Type', 'application/json' );
+    let options = new RequestOptions({ headers: headers });
+
+    this.http.post(this.url + 'cadastrarUsuario', this.model, options)
+		.map(res => res.json())
+		.subscribe(data => {
+		  console.log(data);
+		}, error => {
+		  console.log(error);
+    });
+    
+    console.log(this.model);
+
+    let alert = this.alertCtrl.create({
+			title: 'Usuario cadastrado com sucesso!',
+			buttons: [
+				{
+			        text: 'OK',
+			        role: 'ok',
+			        handler: () => {
+			          this.navCtrl.push(LoginPage)
+			        }
+		      	}
+		    ]
+			});
+		alert.present();        
   }
 
   voltarParaLogin(){
     this.navCtrl.push(LoginPage);
   }
-}
-
-export class User {
-  email: string;
-  password: string;
-  nome: string;
-  telefone: string;
-  cidade: string;
-  bairro: string;
-  endereco: string;
-  cpf: string;
-  apelido: string;
 }

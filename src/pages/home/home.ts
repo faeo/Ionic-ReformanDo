@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, Platform } from 'ionic-angular';
+import { NavController, Platform, NavParams } from 'ionic-angular';
 import { MinhasObrasPage } from '../minhas-obras/minhas-obras';
 import { ProcurarProfissionaisPage } from '../procurar-profissionais/procurar-profissionais';
 import { SouProfissionalPage } from '../sou-profissional/sou-profissional';
@@ -13,14 +13,18 @@ import 'rxjs/add/operator/map';
 export class HomePage {
 
   public feeds: Array<string>;
-  private url: string = "http://localhost/WebService_ReformanDo/api/?acao=listarUsuarios";
+  private url: string = "http://localhost/WebService_ReformanDo/api/?acao=";
   public usuario:string = '';
 
-  constructor(public navCtrl: NavController, public http: Http, public platform: Platform) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public platform: Platform) {
 
     this.platform = platform;
 
-    this.http.get(this.url).map(res => res.json())
+    let id = navParams.get('id');
+    console.log(id);
+
+    this.http.get(this.url + 'listarUsuariosPorId&id=' + id)
+    .map(res => res.json())
       .subscribe(data => {
         this.feeds = data.Usuarios;
         //console.log(data);

@@ -3,20 +3,23 @@
   <img src="assets/imgs/logo_principal.png" />
   <h2>Faça seu Login</h2>
 
-  <ion-list>
-    <ion-item class="fundo">
-      <ion-label stacked>Email</ion-label>
-      <ion-input type="text" name="email" [(ngModel)]="model.email" placeholder="Digite seu e-mail"></ion-input>
-    </ion-item>
+  <form (ngSubmit)="logar()" class="fundo">
+    <ion-list>
+      <ion-item class="fundo">
+        <ion-label stacked>Email</ion-label>
+        <ion-input type="email" name="email" [(ngModel)]="model.email" placeholder="Digite seu e-mail" required></ion-input>
+      </ion-item>
 
-    <ion-item class="fundo">
-      <ion-label stacked>Senha</ion-label>
-      <ion-input type="password" name="password" [(ngModel)]="model.password" placeholder="Digite sua senha"></ion-input>
-    </ion-item>
-  </ion-list>
+      <ion-item class="fundo">
+        <ion-label stacked>Senha</ion-label>
+        <ion-input type="password" name="senha" [(ngModel)]="model.senha" placeholder="Digite sua senha" required></ion-input>
+      </ion-item>
+    </ion-list>
 
-  
-  <button class="btn_base" ion-button round large block (click)="login()">Logar</button>
+    
+    <button type="submit" class="btn_base" ion-button round large block >Logar</button>
+  </form>
+
   <br><br>
   <a (click)='editarUser()'> Esqueceu sua senha?</a>
   <br><br>

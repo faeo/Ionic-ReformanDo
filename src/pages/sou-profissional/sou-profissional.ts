@@ -60,7 +60,7 @@ export class SouProfissionalPage {
 		headers.append('Content-Type', 'application/json' );
 		let options = new RequestOptions({ headers: headers });
 
-    var result = this.http.post(this.url + 'cadastrarProfissionais', this.dados, options)
+    this.http.post(this.url + 'cadastrarProfissionais', this.dados, options)
 		.map(res => res.json())
 		.subscribe(data => {
 		  console.log(data);
