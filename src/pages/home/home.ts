@@ -20,7 +20,7 @@ export class HomePage {
 
     this.platform = platform;
 
-    let id = navParams.get('id');
+    let id = 1;
     console.log(id);
 
     this.http.get(this.url + 'listarUsuariosPorId&id=' + id)

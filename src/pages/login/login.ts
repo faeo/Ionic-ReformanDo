@@ -18,17 +18,16 @@ export class LoginPage {
   private alertCtrl: AlertController;
   private url: string;
 
-  constructor(public usuario:UsersProvider, alertCtrl: AlertController, http: Http, public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public globalSvsVars: GlobalServicesVarsProvider) {
+  constructor(public usuario: UsersProvider, alertCtrl: AlertController, http: Http, public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public globalSvsVars: GlobalServicesVarsProvider) {
 
     this.url = globalSvsVars.apiUrl;
     this.http = http;
     this.alertCtrl = alertCtrl;
     this.model = {};
+    this.model.email = '';
+    this.model.senha = '';
 
-    this.usuario.usuario.email =  this.model.email = '';
-    this.usuario.usuario.senha =   this.model.senha = '';
-    
-   
+
   }
 
   logar() {
@@ -50,7 +49,7 @@ export class LoginPage {
 
     let alert = this.alertCtrl.create({
 
-      title: 'Login efetuado com sucesso!', 
+      title: 'Login efetuado com sucesso!',
       buttons: [
         {
           text: 'OK',

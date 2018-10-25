@@ -1,46 +1,74 @@
-import { UsersProvider } from './../../providers/users/users';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import {  NavParams, Platform, ViewController, AlertController, NavController } from 'ionic-angular';
+import { Http, Headers, RequestOptions } from '@angular/http';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
+import { LoginPage } from '../login/login';
+import { GlobalServicesVarsProvider } from '../../providers/global-services-vars/global-services-vars';
 
-@IonicPage()
 @Component({
-  selector: 'page-user-edit',
+  selector: 'user-edit',
   templateUrl: 'user-edit.html',
 })
 export class UserEditPage {
-  model: User;
+  private item;
+  private http: Http;
+  private alertCtrl: AlertController;
+  private url;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private toast: ToastController, private userProvider: UsersProvider ) {
-    if (this.navParams.data.user) {
-      this.model = this.navParams.data.user;
-    } else {
-      this.model = new User();
-    }
+  constructor(public globalSvsVars: GlobalServicesVarsProvider, public navCtrl: NavController, public platform: Platform, public params: NavParams, public viewCtrl: ViewController, http: Http, alertCtrl: AlertController){    
+    
+    this.item = {};
+    this.item.email = '';
+    this.item.cpf = '';
+    
+  
+    this.url = this.globalSvsVars.apiUrl;
+    this.http = http;
+    this.alertCtrl = alertCtrl;
   }
 
-  save() {
-    this.saveUser()
-      .then(() => {
-        this.toast.create({ message: 'Usuário salvo com sucesso.', position: 'botton', duration: 3000 }).present();
-        this.navCtrl.pop();
-      })
-      .catch((error) => {
-        this.toast.create({ message: 'Erro ao salvar o usuário. Erro: ' + error.error, position: 'botton', duration: 3000 }).present();
-      })
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad UserEditPage');
   }
 
-  private saveUser() {
-    if (this.model.id) {
-      return this.userProvider.update(this.model);
-    } else {
-      return this.userProvider.insert(this.model);
-    }
+  //Editar Usuario
+  enviarEmail() {
+
+    var headers = new Headers();
+    headers.append("Accept", 'application/json');
+    headers.append('Content-Type', 'application/json' );
+    let options = new RequestOptions({ headers: headers });
+
+    this.http.post(this.url + 'esqueciMinhaSenha&cpf=' + this.item.cpf, this.item, options)
+    .map(res => res.json())
+    .subscribe(data => {
+      console.log(data);
+    }, error => {
+      console.log(error);
+    });
+
+    //console.log(this.item);
+
+    let alert = this.alertCtrl.create({
+      title: 'Enviado com sucesso!',
+      buttons: [
+        {
+              text: 'OK',
+              role: 'ok',
+              handler: () => {
+                this.viewCtrl.dismiss(this.item);
+                this.navCtrl.push( LoginPage);
+              }
+            }
+        ]
+      });
+    alert.present();
+
   }
 
-}
+  voltarParaLogin(){
+    this.navCtrl.push(LoginPage);
+  }
 
-export class User {
-  id: number;
-  first_name: string;
-  last_name: string;
 }

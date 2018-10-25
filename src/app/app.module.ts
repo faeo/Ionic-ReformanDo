@@ -27,7 +27,6 @@ import { CreateAccountPage } from '../pages/create-account/create-account';
 import { LoginPage } from '../pages/login/login';
 import { UserDetailPage } from '../pages/user-detail/user-detail';
 import { UserEditPage } from '../pages/user-edit/user-edit';
-import { UserListPage } from '../pages/user-list/user-list';
 
 
 
@@ -45,7 +44,6 @@ import { UserListPage } from '../pages/user-list/user-list';
     LoginPage,
     UserDetailPage,
     UserEditPage,
-    UserListPage,
     ModalContentPage,
     ModalContentPageEditar,
     ListaProfissionaisPage,
@@ -69,7 +67,6 @@ import { UserListPage } from '../pages/user-list/user-list';
     LoginPage,
     UserDetailPage,
     UserEditPage,
-    UserListPage,
     ModalContentPage,
     ModalContentPageEditar,
     ListaProfissionaisPage,

@@ -1,25 +1,29 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Rest Api Example
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content class="fundo">
 
-<ion-content padding>
+    <ion-fab left edge>
+        <button (click)='voltarParaLogin()' class="btn_base" ion-fab mini>
+          <ion-icon name="ios-return-left-outline"></ion-icon>
+        </button>
+      </ion-fab>
+    
+      <img src="assets/imgs/logo_abrev.png" class="logo_abrev" />
+      <h2>Solicitar nova Senha</h2>
+  
+  <form (ngSubmit)="enviarEmail()" class="fundo">   
+    <ion-list>
+      <ion-item class="fundo">
+        <ion-label stacked>Email</ion-label>
+        <ion-input type="text" name="email" [(ngModel)]="item.email"></ion-input>
+      </ion-item>
 
-  <ion-list>
-    <ion-item>
-      <ion-label stacked>Nome</ion-label>
-      <ion-input type="text" name="first_name" [(ngModel)]="model.first_name"></ion-input>
-    </ion-item>
+      <ion-item class="fundo">
+          <ion-label stacked>CPF</ion-label>
+          <ion-input type="text" name="cpf" [(ngModel)]="item.cpf"></ion-input>
+        </ion-item>
+      
+    </ion-list>
 
-    <ion-item>
-      <ion-label stacked>Sobrenome</ion-label>
-      <ion-input type="text" name="last_name" [(ngModel)]="model.last_name"></ion-input>
-    </ion-item>
-  </ion-list>
-
-  <button ion-button block (click)="save()" color="primary">Salvar</button>
+    <button type="submit" class="btn_base" ion-button round large block >Salvar</button>
+  </form>
 
 </ion-content>
