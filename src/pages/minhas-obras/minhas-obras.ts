@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, ModalController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, ModalController} from 'ionic-angular';
 import { Http } from '@angular/http';
 import { HomePage } from '../home/home';
 import { NovasObrasPage } from '../novas-obras/novas-obras';
@@ -19,13 +19,12 @@ export class MinhasObrasPage {
 
   public feeds: Array<string>;
   private url: string;
-  private alertCtrl: AlertController;
 
-  constructor(public navCtrl: NavController, public http: Http, public modalCtrl: ModalController, alertCtrl: AlertController, public globalSvsVars: GlobalServicesVarsProvider) {
-
+  constructor(public navCtrl: NavController, public http: Http, public modalCtrl: ModalController, public globalSvsVars: GlobalServicesVarsProvider) {
 
 
-    this.alertCtrl = alertCtrl;
+
+    
     this.url = globalSvsVars.apiUrl;
 
     //Listar Obras

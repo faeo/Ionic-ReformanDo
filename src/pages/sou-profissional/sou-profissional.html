@@ -47,7 +47,7 @@
       </ion-item>
 
       <ion-list>
-        <ion-item class="fundo">
+        <ion-item class="fundo select">
           <ion-label>Cidade</ion-label>
           <ion-select [(ngModel)]="dados.cidade" name="cidade">
             <ion-option value="baependi">Baependi</ion-option>
@@ -65,20 +65,17 @@
       </ion-item>
 
       <ion-list>
-        <ion-item class="fundo">
+        <ion-item class="fundo select">
           <ion-label>Profissão</ion-label>
           <ion-select [(ngModel)]="dados.profissao" name="profissao">
             <ion-option value="pedreiro">Pedreiro</ion-option>
             <ion-option value="pintor">Pintor</ion-option>
             <ion-option value="marceneiro">Marceneiro</ion-option>
             <ion-option value="encanador">Encanador</ion-option>
-            <ion-option value="eletrcista">Eletricista</ion-option>
+            <ion-option value="eletricista">Eletricista</ion-option>
           </ion-select>
         </ion-item>
       </ion-list>
-
-     
-
 
       <button type="submit" class="btn_base" ion-button round large block>
         <ion-icon name="enviar"> Cadastrar </ion-icon>

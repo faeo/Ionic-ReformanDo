@@ -9,53 +9,56 @@
 
   <img src="assets/imgs/logo_abrev.png" class="logo_abrev">
   
-  <ion-item class="fundo">
-    <ion-label>Nome:</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
 
-  <ion-list>
+  <form (ngSubmit)= "procurarProfissionais()">
+    
     <ion-item class="fundo">
-      <ion-label>Cidade</ion-label>
-      <ion-select name="cidade">
-        <ion-option value="baependi">Baependi</ion-option>
-        <ion-option value="cambuquira">Cambuquira</ion-option>
-        <ion-option value="caxambu">Caxambu</ion-option>
-        <ion-option value="tres coracoes">Três Corações</ion-option>
-        <ion-option value="varginha">Varginha</ion-option>
-      </ion-select>
+      <ion-label>Nome:</ion-label>
+      <ion-input [(ngModel)]="dados.nome" name="nome" type="text" placeholder="Pesquise por nome ou apelido"></ion-input>
     </ion-item>
-  </ion-list>
 
-  <ion-list>
+    <ion-list>
+      <ion-item class="fundo select">
+        <ion-label>Cidade: </ion-label>
+        <ion-select [(ngModel)]="dados.cidade" name="cidade">
+          <ion-option value="baependi">Baependi</ion-option>
+          <ion-option value="cambuquira">Cambuquira</ion-option>
+          <ion-option value="caxambu">Caxambu</ion-option>
+          <ion-option value="tres coracoes">Três Corações</ion-option>
+          <ion-option value="varginha">Varginha</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    
+
+    <ion-list>
+      <ion-item class="fundo select">
+        <ion-label>Profissional: </ion-label>
+        <ion-select [(ngModel)]="dados.tipoprofissional" name="tipoprofissional">
+          <ion-option value="pedreiro">Pedreiro</ion-option>
+          <ion-option value="pintor">Pintor</ion-option>
+          <ion-option value="marceneiro">Marceneiro</ion-option>
+          <ion-option value="encanador">Encanador</ion-option>
+          <ion-option value="eletricista">Eletricista</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
     <ion-item class="fundo">
-      <ion-label>Profissional</ion-label>
-      <ion-select name="tipoprofissional">
-        <ion-option value="pedreiro">Pedreiro</ion-option>
-        <ion-option value="pintor">Pintor</ion-option>
-        <ion-option value="marceneiro">Marceneiro</ion-option>
-        <ion-option value="encanador">Encanador</ion-option>
-        <ion-option value="eletrcista">Eletricista</ion-option>
-      </ion-select>
+      <ion-label>Qualificação:</ion-label>
+      <ion-range [(ngModel)]="dados.qualificacao" name="qualificacao" min="0" max="5" pin="true" color="primary">
+        <ion-icon range-left small name="ios-star-outline"></ion-icon>
+        <ion-icon range-right name="star"></ion-icon>
+      </ion-range>
     </ion-item>
-  </ion-list>
-
-  <ion-item class="fundo">
-    <ion-label>Qualificação:</ion-label>
-    <ion-range min="0" max="5" pin="true" color="primary">
-      <ion-icon range-left small name="ios-star-outline"></ion-icon>
-      <ion-icon range-right name="star"></ion-icon>
-    </ion-range>
-  </ion-item>
 
 
-  <button (click)='procurarProfissionais()' class="btn_base" ion-button round large block>
+  <button type="submit" class="btn_base" ion-button block round large>
     <ion-icon name="search"> Pesquisar </ion-icon>
   </button> 
-  <!-- <ion-option *ngFor="let item of strings" [value]="item">{{item}}</ion-option> -->
-  <!-- *ngFor="let item of items; let i = index" -->
 
-  <br>
+</form>
 
   
 </ion-content>

@@ -28,38 +28,37 @@
   <!-- Idem Alexandre-->
   <ion-list>
     <ion-item-sliding *ngFor="let feed of feeds">
+
       <ion-item class="fundo" (click)="itemDetalhes($event, feed)">
+        <ion-card class="fundo">
+          <ion-row>
+            <ion-col>
 
-        <ion-thumbnail *ngIf="feed.imagem" item-left>
-          <img src="assets/imgs/logo_principal.png">
-        </ion-thumbnail>
-        <ion-thumbnail *ngIf="!feed.imagem" item-left>
-          <img src="./assets/icon/favicon.ico">
-        </ion-thumbnail>
+              <ion-thumbnail *ngIf="feed.imagem">
+                <img src="assets/imgs/logo_principal.png">
+              </ion-thumbnail>
+              <ion-thumbnail *ngIf="!feed.imagem">
+                <img src="./assets/icon/favicon.ico">
+              </ion-thumbnail>
 
-        <p>
-          <label>Nome da Obra:</label>
-        </p>
-        <br> {{feed.nome}} <br>
-        <p>
-          <br><label>Descrição:</label>
-        </p>
-        <br> {{feed.descricao}} <br><br>
+            </ion-col>
+            <ion-col>
+              <p>
+                <label>Nome da Obra:</label>
+              </p>
+              {{feed.nome}}
+              <p>
+              <br> <!-- Pular linha -->
+              </p>
+              <p>
+                <label>Descrição:</label>
+              </p>
+              {{feed.descricao}}
+            </ion-col>
+          </ion-row>
+        </ion-card>
 
       </ion-item>
-
-      <ion-item-options side="left">
-        <button ion-button (click)="editarItem($event, feed)">
-          <ion-icon name="paper"> Editar </ion-icon>
-        </button>
-      </ion-item-options>
-
-      <ion-item-options side="right">
-        <button ion-button (click)="editarItem($event, feed)">
-          <ion-icon name="paper"> Editar </ion-icon>
-        </button>
-      </ion-item-options>
-
 
     </ion-item-sliding>
   </ion-list>

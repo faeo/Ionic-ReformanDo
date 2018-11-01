@@ -1,24 +1,23 @@
-
-
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { GlobalServicesVarsProvider } from '../global-services-vars/global-services-vars';
  
 @Injectable()
 export class UsersProvider {
   
   private url: string;
 
-  public usuario = {  
+  public dados = {  
     email: '', senha:''
   };
  
-  constructor(public http: Http, private globalSvsVars: GlobalServicesVarsProvider) {
-
-    this.url = globalSvsVars.apiUrl;
+  constructor(public http: Http) {
 
 
+
+  this.dados = {  
+    email: '', senha:''
+  };
    }
  
   createAccount(nome: string, apelido: string, cpf: string, endereco: string, bairro: string, cidade: string, telefone: string, email: string, senha: string) {

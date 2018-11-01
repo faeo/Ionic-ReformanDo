@@ -15,7 +15,7 @@
 
     <ion-item class="fundo">
       <ion-label>Titulo da Obra</ion-label>
-      <ion-input type="text" [(ngModel)]="dados.nomeobra" name="nomeobra"></ion-input>
+      <ion-input type="text" [(ngModel)]="dados.nomeobra" name="nomeobra" ></ion-input>
     </ion-item>
 
     <ion-item class="fundo">
@@ -24,7 +24,7 @@
     </ion-item>
 
     <ion-list>
-      <ion-item class="fundo">
+      <ion-item class="fundo select">
         <ion-label>Localização</ion-label>
         <ion-select [(ngModel)]="dados.localizacao" name="localizacao">
           <ion-option value="baependi">Baependi</ion-option>
@@ -37,7 +37,7 @@
     </ion-list>
 
     <ion-list>
-      <ion-item class="fundo">
+      <ion-item class="fundo select">
         <ion-label>Profissional</ion-label>
         <ion-select [(ngModel)]="dados.tipoprofissional" name="tipoprofissional">
           <ion-option value="pedreiro">Pedreiro</ion-option>

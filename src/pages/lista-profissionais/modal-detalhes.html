@@ -8,24 +8,50 @@
     </button>
   </ion-buttons>
 
-  
-
 
   <ion-list>
     <ion-item class="fundo">
-      <img src="../../assets/imgs/logo_abrev.png">
-      <p>Nome:</p>
-      {{item.nome}} 
-      <p>Apelido:</p>
-      {{item.apelido}} 
-      <p>Rua:</p>
-      {{item.endereco}} 
-      <p>Bairro:</p>
-      {{item.bairro}} 
-      <p>Cidade:</p>
-      {{item.cidade}}
-      <p>Profissão:</p>
-      {{item.profissao}}
+      <img src="../../assets/imgs/logo_abrev.png" class="logo_abrev">
+      <ion-row>
+        <ion-col>
+          <p>Nome:</p>
+          {{item.nome}}
+        </ion-col>
+        <ion-col>
+          <p>Apelido:</p>
+          {{item.apelido}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col>
+        <p>Rua:</p>
+        {{item.endereco}}
+        </ion-col>
+        <ion-col>
+            <p>Numero:</p>
+            <!--{{item.numero}} Arrumar BD --> 00
+          </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <p>Bairro:</p>
+          {{item.bairro}}
+        </ion-col>
+        <ion-col>
+          <p>Cidade:</p>
+          {{item.cidade}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <p>Profissão:</p>
+          {{item.profissao}}
+        </ion-col>
+        <ion-col>
+          <p>Qualificação:</p>
+          {{item.qualificacao}}
+        </ion-col>
+      </ion-row>
     </ion-item>
   </ion-list>
 
@@ -33,13 +59,13 @@
 
     <p>Deixe sua avaliação para o(a) profissional {{item.nome}}:</p>
     <ion-range min="0" max="5" pin="true" color="primary">
-        <ion-icon range-left small name="ios-star-outline"></ion-icon>
-        <ion-icon range-right name="star"></ion-icon>
+      <ion-icon range-left small name="ios-star-outline"></ion-icon>
+      <ion-icon range-right name="star"></ion-icon>
     </ion-range>
 
     <button type="submit" class="btn_base" ion-button>
-        <ion-icon name="star"> Avaliar </ion-icon>
+      <ion-icon name="star"> Avaliar </ion-icon>
     </button>
-  
+
   </form>
 </ion-content>

@@ -5,6 +5,7 @@ import { MinhasObrasPage } from '../minhas-obras/minhas-obras';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { GlobalServicesVarsProvider } from '../../providers/global-services-vars/global-services-vars';
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -31,6 +32,8 @@ export class NovasObrasPage {
         this.http = http;
 				this.alertCtrl = alertCtrl;
 				this.url = globalSvsVars.apiUrl;
+				
+	
 
 
   }
@@ -53,9 +56,10 @@ export class NovasObrasPage {
 		this.http.post(this.url + 'cadastrarObra', this.dados, options)
 		.map(res => res.json())
 		.subscribe(data => {
-		  console.log(data);
+			console.log(data);
 		}, error => {
-		  console.log(error);
+			console.log(error);
+			this.navCtrl.push(HomePage)
 		});
 
 		console.log(this.dados);
@@ -64,15 +68,16 @@ export class NovasObrasPage {
 			title: 'Sua obra foi cadastrado com sucesso!',
 			buttons: [
 				{
-			        text: 'OK',
-			        role: 'ok',
-			        handler: () => {
-			          this.navCtrl.push(MinhasObrasPage)
-			        }
-		      	}
-		    ]
+							text: 'OK',
+							role: 'ok',
+							handler: () => {
+								this.navCtrl.push(MinhasObrasPage)
+							}
+						}
+				]
 			});
 		alert.present();
+
 
 	
     

@@ -50,7 +50,7 @@ export class ModalContentPage2 {
     headers.append('Content-Type', 'application/json' );
     let options = new RequestOptions({ headers: headers });
 
-    var result = this.http.post(this.url + 'avaliarProfissionalPorId&id=' + this.item.id, this.item, options)
+    this.http.post(this.url + 'avaliarProfissionalPorId&id=' + this.item.id, this.item, options)
     .map(res => res.json())
     .subscribe(data => {
       console.log(data);

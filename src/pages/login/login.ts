@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
-import { UserEditPage } from '../user-edit/user-edit';
 import { CreateAccountPage } from '../create-account/create-account';
 import { IntroPage } from '../intro/intro';
 import { Http, RequestOptions, Headers } from '@angular/http';
@@ -17,15 +16,21 @@ export class LoginPage {
   private http: Http;
   private alertCtrl: AlertController;
   private url: string;
+  public usuario: UsersProvider;
 
-  constructor(public usuario: UsersProvider, alertCtrl: AlertController, http: Http, public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public globalSvsVars: GlobalServicesVarsProvider) {
+  constructor(public user: UsersProvider, alertCtrl: AlertController, http: Http, public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public globalSvsVars: GlobalServicesVarsProvider) {
 
     this.url = globalSvsVars.apiUrl;
     this.http = http;
     this.alertCtrl = alertCtrl;
+   
     this.model = {};
     this.model.email = '';
     this.model.senha = '';
+
+    this.usuario = user;
+
+    
 
 
   }
@@ -47,6 +52,8 @@ export class LoginPage {
 
     console.log(this.model);
 
+    this.usuario.dados.email = this.model.email;
+
     let alert = this.alertCtrl.create({
 
       title: 'Login efetuado com sucesso!',
@@ -55,8 +62,9 @@ export class LoginPage {
           text: 'OK',
           role: 'ok',
           handler: () => {
-            this.navCtrl.push(IntroPage, { id: this.model.pessoas_idpessoas })
-            console.log('TESTE2', this.model.pessoas_idpessoas);
+            
+            this.navCtrl.push(IntroPage)
+
           }
         }
       ]
@@ -67,7 +75,7 @@ export class LoginPage {
   }
 
   editarUser() {
-    this.navCtrl.push(UserEditPage);
+    this.navCtrl.push(CreateAccountPage);
   }
 
   criarUser() {

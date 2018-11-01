@@ -25,8 +25,6 @@ import { ModalContentPageEditar } from '../pages/minhas-obras/modal-editar';
 
 import { CreateAccountPage } from '../pages/create-account/create-account';
 import { LoginPage } from '../pages/login/login';
-import { UserDetailPage } from '../pages/user-detail/user-detail';
-import { UserEditPage } from '../pages/user-edit/user-edit';
 
 
 
@@ -42,8 +40,6 @@ import { UserEditPage } from '../pages/user-edit/user-edit';
     NovasObrasPage,
     CreateAccountPage,
     LoginPage,
-    UserDetailPage,
-    UserEditPage,
     ModalContentPage,
     ModalContentPageEditar,
     ListaProfissionaisPage,
@@ -65,8 +61,6 @@ import { UserEditPage } from '../pages/user-edit/user-edit';
     NovasObrasPage,
     CreateAccountPage,
     LoginPage,
-    UserDetailPage,
-    UserEditPage,
     ModalContentPage,
     ModalContentPageEditar,
     ListaProfissionaisPage,

@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController} from 'ionic-angular';
 import { HomePage } from '../home/home';
-import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { GlobalServicesVarsProvider } from '../../providers/global-services-vars/global-services-vars';
 import { ListaProfissionaisPage } from '../lista-profissionais/lista-profissionais';
-
 
 @IonicPage()
 @Component({
@@ -13,14 +10,18 @@ import { ListaProfissionaisPage } from '../lista-profissionais/lista-profissiona
   templateUrl: 'procurar-profissionais.html',
 })
 export class ProcurarProfissionaisPage {
-
-  public feeds: Array<string>;
-  private url: string;
   
+  private dados;
 
-  constructor(public navCtrl: NavController, public http: Http,  public globalSvsVars: GlobalServicesVarsProvider) {
+  constructor(public navCtrl: NavController) {
+
     
-    this.url = globalSvsVars.apiUrl;
+
+    this.dados = {};
+      this.dados.nome = '';
+      this.dados.cidade = '';
+      this.dados.tipoprofissional = '';
+      this.dados.qualificacao = '';
 
 
   }
@@ -31,7 +32,21 @@ export class ProcurarProfissionaisPage {
 
  
   procurarProfissionais(){
-    this.navCtrl.push(ListaProfissionaisPage);
+
+    if(this.dados.nome != '' ||
+       this.dados.cidade != '' ||
+       this.dados.tipoprofissional != '' ||
+       this.dados.qualificacao != ''    
+    ){
+      
+      this.navCtrl.push(ListaProfissionaisPage, {parametro: this.dados});  
+
+    }
+
+    else{
+      this.navCtrl.push(ListaProfissionaisPage, {parametro: 'FALSE'});
+    }
+
   }
 
   voltarParaHome(){

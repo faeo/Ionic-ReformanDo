@@ -1,4 +1,4 @@
-<ion-content class="fundo">
+<ion-content  no-bounce class="fundo">
 
   <!-- BOTÃO VOLTAR-->
   <ion-fab left edge>
@@ -15,25 +15,35 @@
   <ion-list>
     <ion-item-sliding *ngFor="let feed of feeds">
       <ion-item class="fundo" (click)="profissionalDetalhes($event, feed)">
-        <ion-thumbnail *ngIf="feed.imagem" item-left>
-          <img src="../assets/imgs/logo_principal.png">
-        </ion-thumbnail>
-        <ion-thumbnail *ngIf="!feed.imagem" item-left>
-          <img src="../assets/icon/favicon.ico">
-        </ion-thumbnail>
+        <ion-card class="fundo">
+            <ion-col>
 
-        <p>
-          <label>Nome:</label>
-        </p>
-        {{feed.nome}}
-        <p>
-          <label>Apelido:</label>
-        </p>
-        {{feed.apelido}}
-        <p>
-          <label>Qualificação:</label>
-        </p>
-        {{feed.qualificacao}}
+                <ion-thumbnail *ngIf="feed.imagem">
+                  <img src="assets/imgs/logo_principal.png">
+                </ion-thumbnail>
+                <ion-thumbnail *ngIf="!feed.imagem">
+                  <img src="./assets/icon/favicon.ico">
+                </ion-thumbnail>
+  
+              </ion-col>
+              <ion-col>
+
+                <p>
+                  <label>Nome:</label>
+                </p>
+                {{feed.nome}}
+                <p>
+                  <label>Apelido:</label>
+                </p>
+                {{feed.apelido}}
+                <p>
+                  <label>Qualificação:</label>
+                </p>
+                {{feed.qualificacao}}
+
+              </ion-col>
+
+        </ion-card>
 
       </ion-item>
     </ion-item-sliding>

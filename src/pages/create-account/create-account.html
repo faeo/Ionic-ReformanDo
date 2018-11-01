@@ -6,16 +6,13 @@
     </button>
   </ion-fab>
 
-  <img src="assets/imgs/logo_abrev.png" class="logo_abrev" />
+  <img src="assets/imgs/logo_abrev.png" class="logo_abrev"/>
   <h2>Crie sua conta</h2>
-
-  
-  
 
   <ion-list>
     <ion-item class="fundo">
-      <ion-label  stacked ng-class="{ 'input-error' : (contato.nome.$error.required || contato.nome.$error.minlength) && !contato.nome.$pristine}"> Nome:</ion-label>
-      <ion-input type="text" [(ngModel)]="model.nome" name="nome" minlength="2" required></ion-input>
+      <ion-label stacked>Nome:</ion-label>
+      <ion-input type="text" [(ngModel)]="model.nome" name="nome" required></ion-input>
     </ion-item>
 
     <ion-item class="fundo">
@@ -45,7 +42,7 @@
 
     <ion-item class="fundo">
       <ion-label stacked>Telefone:</ion-label>
-      <ion-input type="Tel" [(ngModel)]="model.telefone" name="telefone"></ion-input>
+      <ion-input type="Tel" [(ngModel)]="model.telefone" name="telefone" mask='{(99)99999-9999}'></ion-input>
     </ion-item>
 
     <ion-item class="fundo">
@@ -59,6 +56,6 @@
     </ion-item>
   </ion-list>
 
-  <button ion-button block (click)="criarConta()">Criar conta</button>
+  <button class="btn_base" ion-button round large block (click)="criarConta()">Criar conta</button>
 
 </ion-content>

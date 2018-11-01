@@ -5,6 +5,8 @@ import { ProcurarProfissionaisPage } from '../procurar-profissionais/procurar-pr
 import { SouProfissionalPage } from '../sou-profissional/sou-profissional';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { GlobalServicesVarsProvider } from '../../providers/global-services-vars/global-services-vars';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-home',
@@ -13,61 +15,53 @@ import 'rxjs/add/operator/map';
 export class HomePage {
 
   public feeds: Array<string>;
-  private url: string = "http://localhost/WebService_ReformanDo/api/?acao=";
-  public usuario:string = '';
+  private url;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public platform: Platform) {
+  constructor(public globalSvsVars: GlobalServicesVarsProvider, public navCtrl: NavController, public navParams: NavParams, public http: Http, public platform: Platform) {
+
+    this.url = globalSvsVars.apiUrl;
 
     this.platform = platform;
 
-    let id = 1;
-    console.log(id);
-
-    this.http.get(this.url + 'listarUsuariosPorId&id=' + id)
-    .map(res => res.json())
+    this.http.get(this.url + 'listarUsuarios')
+      .map(res => res.json())
       .subscribe(data => {
         this.feeds = data.Usuarios;
-        //console.log(data);
-      }); 
+      });
 
-      this.getUsuario();
-
-  }
-
-  getUsuario(){
-    this.http.get(this.url).map(res => res.json())
-    .subscribe(data => {
-      this.usuario = data.Usuarios[0];
-      console.log(data);
-    }); 
 
 
   }
 
-  irParaMinhasObras(){
+ 
+
+
+
+
+  irParaMinhasObras() {
 
     this.navCtrl.push(MinhasObrasPage);
 
   }
 
-  irParaProcurarProfissionais(){
+  irParaProcurarProfissionais() {
 
     this.navCtrl.push(ProcurarProfissionaisPage);
 
   }
 
-  irParaSouProfissional(){
+  irParaSouProfissional() {
 
     this.navCtrl.push(SouProfissionalPage);
 
   }
 
-  sair(){
-  
-    this.platform.exitApp();
+  logout() {
+
+    this.navCtrl.push(LoginPage);
   }
 
-} 
+}
 
 
 

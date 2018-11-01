@@ -54,9 +54,6 @@ export class ModalContentPage {
 
     let prompt = this.alertCtrl.create({
       title: 'Deseja excluir esta obra?',
-      inputs: [{
-        name: 'title'
-      }],
       buttons: [
         {
           text: 'Não'
